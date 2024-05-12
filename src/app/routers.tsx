@@ -1,21 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Navbar from "./components/navbar";
 
-export const HeaderComponent = () => {
-    return (
-        <div>
-            {/* Some components within the header of the page */}
-            <Link href="/components/homeScreen">My girl expenses</Link>
-            <Link href="/components/homeScreen ">My self</Link>
-        </div>
-    );
-};
 
 const Routers = () => {
     return (
         // <---1 Wrap this component with a context
-        <div className="m-10">{<HeaderComponent />}</div>
+        <div className="HeaderClass">{<Navbar />}</div>
         // 1--->
     );
 };
