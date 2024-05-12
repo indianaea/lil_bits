@@ -1,0 +1,61 @@
+/* components/Navbar.module.css */
+.navbar {
+    position: fixed;
+    background-color: rgba(75, 85, 99, 0.1); /* bg-gray-800 bg-opacity-10 */
+    color: white;
+    font-family: sans-serif;
+    padding: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 10;
+  }
+  
+  .container {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menuBtn {
+    display: none; /* hidden on medium screens and up */
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .desktopMenu {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .desktopMenu a:hover {
+    color: #27272a; /* raisinblack */
+  }
+  
+  .mobileMenu {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .menuBtn {
+      display: block;
+    }
+    .desktopMenu {
+      display: none;
+    }
+    .mobileMenu {
+      display: block;
+      text-align: center;
+    }
+    .mobileMenu a {
+      display: block;
+    }
+  }
+  
