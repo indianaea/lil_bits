@@ -7,12 +7,13 @@ import Link from "next/link";
 export const NavbarMenu = () => {
     return (
         <nav>
+            <Link href="/" className="Logo">Website</Link>
             <ul>
             <li>
             <Link href="/order">Order dish</Link>
             </li>
             <li>
-            <Link href="/home">About us</Link>
+            <Link href="/aboutUs">About us</Link>
             </li>
             <li>
             <Link href="/menu">Menu</Link>
@@ -26,7 +27,7 @@ export const NavbarMenu = () => {
 const Navbar = () => {
     return (
         // <---1 Wrap this component with a context
-        <div className="Navbar">{<NavbarMenu />}</div>
+        <div className="navbar">{<NavbarMenu />}</div>
         // 1--->
     );
 };

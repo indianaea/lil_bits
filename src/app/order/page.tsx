@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Navbar from "../components/navbar";
+
 
 const Order = () => {
     return (
+    <>
+            <Navbar />
         <div>
             <h1>Orders</h1>
             
@@ -9,6 +13,7 @@ const Order = () => {
 
             <li><Link href="/order/drink">List of drinks</Link></li>
         </div>
+        </>
     );
 };
 
