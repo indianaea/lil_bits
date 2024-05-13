@@ -4,7 +4,7 @@ import "./navbar.css"
 import Link from "next/link";
 
 
-export const NavbarMenue = () => {
+export const NavbarMenu = () => {
     return (
         <nav>
             <ul>
@@ -15,7 +15,7 @@ export const NavbarMenue = () => {
             <Link href="/home">About us</Link>
             </li>
             <li>
-            <Link href="/menue">Menue</Link>
+            <Link href="/menu">Menu</Link>
             </li>
             </ul>
         </nav>
@@ -26,7 +26,7 @@ export const NavbarMenue = () => {
 const Navbar = () => {
     return (
         // <---1 Wrap this component with a context
-        <div className="Navbar">{<NavbarMenue />}</div>
+        <div className="Navbar">{<NavbarMenu />}</div>
         // 1--->
     );
 };
