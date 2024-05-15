@@ -1,12 +1,12 @@
-import Link from "next/link";
+"use client";
+import Image from "next/image";
+import Routers from "../routers";
+import Navbar from "../components/navbar";
 
-const Menue = () => {
-    return (
-        <div>
-            <h1>Menue</h1>
-            <Link href="/">Here are all the itmes on the menue</Link>
-        </div>
-    );
-};
-
-export default Menue;
+export default function Menu() {
+  return (
+    <>
+      <Navbar />
+    </>
+  );
+}

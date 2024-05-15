@@ -1,12 +1,13 @@
 "use client";
-import Image from "next/image";
-import Routers from "./routers";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Navbar from "./components/navbar";
 
-export default function Home() {
+
+export default function FrontPage() {
   return (
     <>
-      <Routers />
+      <Navbar />
     </>
   );
-
 }
