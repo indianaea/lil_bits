@@ -1,0 +1,22 @@
+.carousel-wrapper {
+  max-width: 100%; /* Adjust this as needed */
+  margin: auto;
+}
+
+.carousel .slide img {
+  width: 100%; /* Ensure images take full width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.carousel .control-dots {
+  bottom: 10px; /* Position dots at the bottom */
+}
+
+.carousel .control-dots .dot {
+  background-color: #fff; /* Dots color */
+  box-shadow: none; /* Remove shadow */
+}
+
+.carousel .control-dots .dot.selected {
+  background-color: #000; /* Active dot color */
+}
