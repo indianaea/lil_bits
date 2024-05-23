@@ -2,29 +2,36 @@
   position: fixed;
   margin: auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
   background-color: rgba(75, 85, 99, 0.9); /* More visible for testing */
   color: white;
   font-family: sans-serif;
-  padding: 16px;
+  padding: 0 16px; /* Add horizontal padding */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border-radius: 36px;
   top: 16px;
   left: 16px;
   right: 16px;
+  height: 80px; /* Fixed height for the navbar */
   z-index: 10;
 }
 
 .container {
   max-width: 1024px;
-  margin: auto;
+  width: 100%; /* Make container full width */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Space between logo and menu */
+  align-items: center; /* Center items vertically */
 }
+
+.logo img {
+  height: 100px; /* Adjust the height as needed */
+  width: auto; /* Maintain aspect ratio */
+}
+
 .menuBtn {
-  display: none; /* hidden on medium screens and up */
+  display: none; /* Hidden on medium screens and up */
 }
 
 .icon {
@@ -35,6 +42,12 @@
 .desktopMenu {
   display: flex;
   gap: 16px;
+  margin-left: auto; /* Move the menu to the right */
+}
+
+.desktopMenu a {
+  text-decoration: none;
+  color: white;
 }
 
 .desktopMenu a:hover {
