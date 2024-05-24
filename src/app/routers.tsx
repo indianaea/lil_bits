@@ -2,13 +2,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 
 const Routers = () => {
     return (
-        // <---1 Wrap this component with a context
+        <div>
         <div className="HeaderClass">{<Navbar />}</div>
-        // 1--->
+        <div className="HeaderClass">{<Footer />}</div>
+        </div>
     );
 };
 
