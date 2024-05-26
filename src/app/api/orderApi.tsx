@@ -1,7 +1,7 @@
-import { OrderType } from "./types"
+import { Meal, MealObject, OrderType } from "./types"
 
-const getOrders = async (): Promise<OrderType[]> => {
-	const res = await fetch("http://localhost:3001/api/orders");
+export const getOrders = async (): Promise<MealObject> => {
+	const res = await fetch("https://themealdb.com/api/json/v1/1/random.php");
 
 	if (!res.ok) {
 		throw new Error("Failed to fetch data");
@@ -14,7 +14,7 @@ const getOrders = async (): Promise<OrderType[]> => {
 
 
 const postOrder = async (order: OrderType): Promise<void> => {
-    const res = await fetch(`http://localhost:3001/api/orders/${order}`, {
+    const res = await fetch(`http://localhost:3000/api/orders/${order}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

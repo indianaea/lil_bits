@@ -1,14 +1,14 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { orderApi } from "../api/orderApi";
-import { OrderType } from "../api/types";
+import { Meal, OrderType } from "../api/types";
 
-const Order = ({ order }: { order: OrderType }) => {
+const Order = ({ order }: { order: Meal }) => {
   // Use the context
   // If the context is true, show button, else hide the button
   const contextValue = true;
   return (
-    <p key={order.id}>
+    <p key={order.idMeal}>
       {contextValue && (
         <button
           type="button"
@@ -19,17 +19,17 @@ const Order = ({ order }: { order: OrderType }) => {
           Delete
         </button>
       )}
-      {order.dish.name}: {order.dish.price}
+      {order.strMeal}: {order.strMeal}
     </p>
   );
 };
 
 const Orders = () => {
-  const [orders, setOrders] = useState<OrderType[]>();
+  const [orders, setOrders] = useState<Meal[]>();
 
   const fetchOrder = useCallback(async () => {
     const fetchOrders = await orderApi.getOrders();
-    setOrders(fetchOrders);
+    setOrders(fetchOrders.meals);
   }, []);
 
   useEffect(() => {
@@ -40,11 +40,13 @@ const Orders = () => {
     return <p>Loading...</p>;
   }
 
+  console.log("Orders is: ", orders)
+
   return (
     // <---1 Wrap this component with a context
     <div className="m-10">
       {orders.map((order) => (
-        <Order order={order} key={order.id} />
+        <Order order={order} key={order.strMeal} />
       ))}
     </div>
     // 1--->

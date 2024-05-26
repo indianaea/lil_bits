@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navbar from "../components/navbar";
+import Orders from "./order";
 
 
 const Order = () => {
@@ -8,6 +9,7 @@ const Order = () => {
             <Navbar />
         <div>
             <h1>Orders</h1>
+            <Orders/>
             
             <Link href="/">Here will be a list of my orders</Link>
 

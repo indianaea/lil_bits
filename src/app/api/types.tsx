@@ -23,3 +23,12 @@ export type OrderType = {
 	count: number;
 	date: Date;
 };
+
+export type Meal = {
+	idMeal: string;
+	strMeal: string;
+};
+
+export type MealObject = {
+	meals: Meal [];
+};
