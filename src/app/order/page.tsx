@@ -6,12 +6,10 @@ import Orders from "./order";
 const Order = () => {
     return (
     <>
-            <Navbar />
+        <Navbar />
         <div>
-            <h1>Orders</h1>
+            <h1>My orders</h1>
             <Orders/>
-            
-            <Link href="/">Here will be a list of my orders</Link>
 
             <li><Link href="/order/drink">List of drinks</Link></li>
         </div>

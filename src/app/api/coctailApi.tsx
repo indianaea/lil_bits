@@ -1,6 +1,6 @@
-import { Drink } from "./types"
+import { DrinkType } from "./types"
 
-const getDrinks = async (): Promise<Drink[]> => {
+const getDrinks = async (): Promise<DrinkType[]> => {
 	const res = await fetch("www.thecocktaildb.com/api/json/v1/1/search.php?f=a");
 
 	if (!res.ok) {
@@ -10,22 +10,19 @@ const getDrinks = async (): Promise<Drink[]> => {
 	const response = await res.json();
 	console.log("Getting drinks", response);
 
-	return response;
+    const drinkList: DrinkType[] = response.drinks.map((drink: any) => ({
+        id: drink.idDrink,
+        name: drink.strDrink,
+        description: drink.strInstructions,
+        imageSource: drink.strDrinkThumb,
+        price: 1000,
+        category: drink.strCategory,
+        brewer: "NTV"
+    }));	
+
+	return drinkList;
 };
 
-//function convertToDrink(res: Object) {
-//   return Drink(
-//        id = res.idDrink,
-//        name = res.strDrink,
-//        description = res.strInstructions,
-//        imageSource = res.strDrinkThumb,
-//        price = 1000,
-//        category = res.strCategory,
-//        brewer = ""
-//    );
-//  }
-
-export const GetDrinks = {
-	getDrinks,
+export const coctailApi = {
+	getDrinks
 };
-

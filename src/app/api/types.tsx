@@ -6,23 +6,27 @@ export type Provision = {
 	category: string;
 };
 
-export type Dish = Provision & {
+export type DishType = Provision & {
 	cousine: string;
 	price: number;
 };
 
-export type Drink = Provision & {
+export type DrinkType = Provision & {
 	price: number;
 };
+
 
 export type OrderType = {
 	id: number;
 	email: string;
-	dish: Dish;
-	drinks: Drink[];
+	dish: DishType;
+	drinks: DrinkType[];
 	count: number;
 	date: Date;
+	orderDate: Date;
+	totalAmount: number;
 };
+
 
 export type Meal = {
 	idMeal: string;

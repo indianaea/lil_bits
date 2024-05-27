@@ -24,12 +24,13 @@ const Order = ({ order }: { order: Meal }) => {
   );
 };
 
+
 const Orders = () => {
-  const [orders, setOrders] = useState<Meal[]>();
+  const [orders, setOrders] = useState<OrderType[]>();
 
   const fetchOrder = useCallback(async () => {
     const fetchOrders = await orderApi.getOrders();
-    setOrders(fetchOrders.meals);
+    setOrders(fetchOrders);
   }, []);
 
   useEffect(() => {
@@ -40,17 +41,30 @@ const Orders = () => {
     return <p>Loading...</p>;
   }
 
-  console.log("Orders is: ", orders)
-
   return (
-    // <---1 Wrap this component with a context
-    <div className="m-10">
-      {orders.map((order) => (
-        <Order order={order} key={order.strMeal} />
-      ))}
-    </div>
-    // 1--->
-  );
+        <div className="DivOrders">
+            <h1>Order List</h1>
+            <ul>
+                {orders.map(order => (
+                    <li key={order.id}>
+                        <h2>Order for {order.email}</h2>
+                        <p>Date: {new Date(order.orderDate).toLocaleDateString()}</p>
+                        <h3>Dish: {order.dish.name}</h3>
+                        <p>Description: {order.dish.description}</p>
+                        <h3>Drinks:</h3>
+                        <ul>
+                            {order.drinks.map(drink => (
+                                <li key={drink.id}>
+                                    {drink.name} - {drink.description}: ${drink.price.toFixed(2)}
+                                </li>
+                            ))}
+                        </ul>
+                        <p>Total: ${order.totalAmount}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default Orders;
