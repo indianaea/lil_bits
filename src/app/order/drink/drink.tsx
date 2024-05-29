@@ -25,7 +25,7 @@ const DrinkList = () => {
           <ul>
             {drinks.map(drink => (
               <li key={drink.id}>
-                {drink.name} - {drink.description}: ${drink.price.toFixed(2)}
+                {drink.name} - {drink.description}: {drink.price}
               </li>
             ))}
           </ul>
@@ -40,4 +40,4 @@ const Drinks = () => {
     );
 };
 
-export default Drinks;
+export default DrinkList;

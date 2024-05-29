@@ -7,10 +7,7 @@ const Drink = () => {
         <>
         <Navbar />
         <div>
-            <h1>Drinks</h1>
             <Drinks/>
-
-            <Link href="/">Here will be a list of all drinks</Link>
         </div>
         </>
     );

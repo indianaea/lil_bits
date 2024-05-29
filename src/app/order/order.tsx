@@ -19,7 +19,7 @@ const Order = ({ order }: { order: Meal }) => {
           Delete
         </button>
       )}
-      {order.strMeal}: {order.strMeal}
+      {order.idMeal}: {order.strMeal}
     </p>
   );
 };
@@ -42,6 +42,7 @@ const Orders = () => {
   }
 
   return (
+ 
         <div className="DivOrders">
             <h1>Order List</h1>
             <ul>
@@ -51,15 +52,16 @@ const Orders = () => {
                         <p>Date: {new Date(order.orderDate).toLocaleDateString()}</p>
                         <h3>Dish: {order.dish.name}</h3>
                         <p>Description: {order.dish.description}</p>
+                        <p>Dish price: {order.dish.price}</p>
                         <h3>Drinks:</h3>
                         <ul>
                             {order.drinks.map(drink => (
                                 <li key={drink.id}>
-                                    {drink.name} - {drink.description}: ${drink.price.toFixed(2)}
+                                    {drink.name} - {drink.description}: {drink.price}
                                 </li>
                             ))}
                         </ul>
-                        <p>Total: ${order.totalAmount}</p>
+                        <p>Total: {order.totalAmount}</p>
                     </li>
                 ))}
             </ul>

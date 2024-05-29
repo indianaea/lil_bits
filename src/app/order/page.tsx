@@ -8,10 +8,7 @@ const Order = () => {
     <>
         <Navbar />
         <div>
-            <h1>My orders</h1>
             <Orders/>
-
-            <li><Link href="/order/drink">List of drinks</Link></li>
         </div>
         </>
     );

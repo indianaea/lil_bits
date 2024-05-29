@@ -20,6 +20,9 @@ export const NavbarMenu = () => {
                 <li>
                     <Link href="/menu">Menu</Link>
                 </li>
+                <li>
+                    <Link href="/order/drink">Drinks</Link>
+                </li>
             </ul>
         </div>
     );

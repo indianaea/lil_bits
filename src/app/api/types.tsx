@@ -36,3 +36,4 @@ export type Meal = {
 export type MealObject = {
 	meals: Meal [];
 };
+
