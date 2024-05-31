@@ -1,18 +1,17 @@
 import Link from "next/link";
 import Navbar from "../../components/navbar";
-import Drinks from "./././drink";
+import Orders from "../order";
 
 
-const Drink = () => {
-
+const Order = () => {
     return (
         <>
             <Navbar />
             <div>
-                <Drinks />
+                <Orders />
             </div>
         </>
     );
 };
 
-export default Drink;
+export default Order;

@@ -1,0 +1,12 @@
+.DivDrinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.MaterialAndCounter {
+    display: flex;
+    align-items: center;
+}

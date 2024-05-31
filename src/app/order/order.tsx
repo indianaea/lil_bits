@@ -1,14 +1,19 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { orderApi } from "../api/orderApi";
-import { Meal, OrderType } from "../api/types";
+import { DishType, DrinkType, OrderType } from "../api/types";
+import "./order.css";
 
-const Order = ({ order }: { order: Meal }) => {
+const Order = ({ dish }: { dish: DishType | undefined }) => {
   // Use the context
   // If the context is true, show button, else hide the button
   const contextValue = true;
+
+  if (!dish) {
+    return <p>No dish found</p>;
+  }
   return (
-    <p key={order.idMeal}>
+    <p key={dish.id}>
       {contextValue && (
         <button
           type="button"
@@ -19,54 +24,67 @@ const Order = ({ order }: { order: Meal }) => {
           Delete
         </button>
       )}
-      {order.idMeal}: {order.strMeal}
+      {dish.id}: {dish.name} - {dish.price}
     </p>
   );
 };
 
 
 const Orders = () => {
-  const [orders, setOrders] = useState<OrderType[]>();
+  const [dish, setDish] = useState<DishType>();
 
-  const fetchOrder = useCallback(async () => {
-    const fetchOrders = await orderApi.getOrders();
-    setOrders(fetchOrders);
+  const getRandomDish = useCallback(async () => {
+    const fetchDish = await orderApi.getRandomDish();
+    setDish(fetchDish);
+    localStorage.setItem("dish", JSON.stringify(fetchDish));
   }, []);
 
-  useEffect(() => {
-    fetchOrder();
-  }, [fetchOrder]);
 
-  if (!orders) {
-    return <p>Loading...</p>;
+
+  const nextPage = async () => {
+    window.location.href = "/order/drink";
   }
 
+
+  useEffect(() => {
+    getRandomDish();
+  }, [getRandomDish]);
+
+
+
   return (
- 
-        <div className="DivOrders">
-            <h1>Order List</h1>
-            <ul>
-                {orders.map(order => (
-                    <li key={order.id}>
-                        <h2>Order for {order.email}</h2>
-                        <p>Date: {new Date(order.orderDate).toLocaleDateString()}</p>
-                        <h3>Dish: {order.dish.name}</h3>
-                        <p>Description: {order.dish.description}</p>
-                        <p>Dish price: {order.dish.price}</p>
-                        <h3>Drinks:</h3>
-                        <ul>
-                            {order.drinks.map(drink => (
-                                <li key={drink.id}>
-                                    {drink.name} - {drink.description}: {drink.price}
-                                </li>
-                            ))}
-                        </ul>
-                        <p>Total: {order.totalAmount}</p>
-                    </li>
-                ))}
-            </ul>
+
+    <div className="DivOrders">
+      <h1>Order List</h1>
+      <ul>
+
+        <div className="DishContainer">
+          <Order dish={dish} />
         </div>
-    );
+        <button className="ActionButton" onClick={getRandomDish}>Get Random Dish</button>
+        <button className="ActionButton" onClick={nextPage}>Go To Drink Page</button>
+
+        {/* {orders.map(dish => (
+          <li key={dish.id}>
+            <h2>Order for {dish.email}</h2>
+            <p>Date: {new Date(dish.orderDate).toLocaleDateString()}</p>
+            <h3>Dish: {dish.dish.name}</h3>
+            <p>Description: {dish.dish.description}</p>
+            <p>Dish price: {dish.dish.price}</p>
+            <h3>Drinks:</h3>
+            <ul>
+              {dish.drinks.map(drink => (
+                <li key={drink.id}>
+                  {drink.name} - {drink.description}: {drink.price}
+                </li>
+              ))}
+            </ul>
+            <p>Total: {dish.totalAmount}</p>
+          </li>
+        ))} */}
+      </ul>
+    </div>
+  );
 };
 
 export default Orders;
