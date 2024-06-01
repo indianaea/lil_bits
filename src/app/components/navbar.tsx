@@ -8,7 +8,7 @@ export const NavbarMenu = () => {
     return (
         <div className="container">
             <Link href="/" className="logo">
-                <img src="lilbits.png" alt="Website Logo" />
+                <img src="/lilbits.png" alt="Website Logo" />
             </Link>
             <ul className="desktopMenu">
                 <li>

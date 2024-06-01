@@ -1,14 +1,22 @@
 "use client";
-import Image from "next/image";
-import Routers from "../routers";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import '../common.css'
 
 export default function Menu() {
   return (
     <>
-      <Navbar />
-      <Footer />
-    </>
+    <div className="page-body">
+      <div className="page-header">
+        <Navbar />
+      </div>
+      <div className="page-main">
+        <div>Menu will be here</div> 
+      </div>
+      <div className="page-footer">
+        <Footer />
+      </div>
+    </div>    
+   </>
   );
 }

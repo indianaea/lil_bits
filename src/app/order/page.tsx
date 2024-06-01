@@ -1,18 +1,22 @@
-import Link from "next/link";
+
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Orders from "./order";
-
+import '../common.css'
 
 const Order = () => {
     return (
-    <>
+    <div className="page-body">
+      <div className="page-header">
         <Navbar />
-        <div>
-            <Orders/>
-        </div>
+      </div>
+      <div className="page-main">
+        <Orders />
+      </div>
+      <div className="page-footer">
         <Footer />
-        </>
+      </div>
+    </div>
     );
 };
 
