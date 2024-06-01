@@ -1,7 +1,7 @@
 import { DrinkType } from "./types"
 
 const getDrinks = async (): Promise<DrinkType[]> => {
-    const res = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a");
+    const res = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=c");
 
     if (!res.ok) {
         console.error('Error status:', res.status, res.statusText);
@@ -12,7 +12,7 @@ const getDrinks = async (): Promise<DrinkType[]> => {
     console.log("Getting drinks", response);
 
     const drinkList: DrinkType[] = response.drinks.map((drink: any) => ({
-        id: drink.idDrink,
+        id: Number(drink.idDrink),
         name: drink.strDrink,
         description: drink.strInstructions,
         imageSource: drink.strDrinkThumb,

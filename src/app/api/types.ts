@@ -1,5 +1,5 @@
 export type Provision = {
-	id: string;
+	id: number;
 	name: string;
 	description: string;
 	imageSource: string;
