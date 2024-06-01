@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { coctailApi } from "../../api/coctailApi";
 import { DrinkType } from "../../api/types";
 import './drink.css';
-import ConfirmButton from '../../components/button';
+import Button from '../../components/button';
 
 const DrinkSelector: React.FC = () => {
   const [drinks, setDrinks] = useState<DrinkType[]>([]);
@@ -66,8 +66,8 @@ const DrinkSelector: React.FC = () => {
               )}
             </div>
           ))}
-          <ConfirmButton onClick={confirmSelection} caption="Confirm drinks"/>
         </div>
+        <Button onClick={confirmSelection} caption="Confirm drinks"/>
       </div>
     </>
   );
