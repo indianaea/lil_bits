@@ -1,5 +1,5 @@
 
-.confirm-button {
+.button {
   position: fixed;
   bottom: 200px;
   right: 20px;
@@ -12,6 +12,6 @@
   z-index: 1000; 
 }
 
-.confirm-button:hover {
+.button:hover {
   background-color: #CF6757;
 }

@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { orderApi } from "../api/orderApi";
 import { DishType } from "../api/types";
-import ConfirmButton from '../components/confirmButton';
+import Button from '../components/button';
 import "./order.css";
 
 const RandomDish = () => {
@@ -46,7 +46,7 @@ const RandomDish = () => {
               <p>Price: {dish.price.toFixed(2)}</p>
             </div>
           )}
-          <ConfirmButton onClick={confirmSelection} caption="Go To Drink Page"/> 
+          <Button onClick={confirmSelection} caption="Go To Drink Page"/> 
         </div>
       </div>
     </>

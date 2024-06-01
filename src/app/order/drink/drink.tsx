@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { coctailApi } from "../../api/coctailApi";
 import { DrinkType } from "../../api/types";
 import './drink.css';
-import ConfirmButton from '../../components/confirmButton';
+import ConfirmButton from '../../components/button';
 
 const DrinkSelector: React.FC = () => {
   const [drinks, setDrinks] = useState<DrinkType[]>([]);
