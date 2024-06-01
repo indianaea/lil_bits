@@ -1,0 +1,17 @@
+
+.confirm-button {
+  position: fixed;
+  bottom: 200px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #e3e996;
+  color: #3E5f54;
+  border: round;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1000; 
+}
+
+.confirm-button:hover {
+  background-color: #CF6757;
+}

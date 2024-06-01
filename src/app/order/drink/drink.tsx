@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { coctailApi } from "../../api/coctailApi";
 import { DrinkType } from "../../api/types";
 import './drink.css';
+import ConfirmButton from '../../components/confirmButton';
 
 const DrinkSelector: React.FC = () => {
   const [drinks, setDrinks] = useState<DrinkType[]>([]);
@@ -39,6 +40,13 @@ const DrinkSelector: React.FC = () => {
 
   const isDrinkSelected = (id: number) => selectedDrinks.includes(id);
 
+  const confirmSelection = () => {
+    console.log('Confirmed selected drinks:', selectedDrinks);
+    alert(`You have confirmed your selection: ${JSON.stringify(selectedDrinks)}`);
+    
+    window.location.href = "/order/confirm";
+    
+  };
 
   return (
     <>
@@ -54,10 +62,11 @@ const DrinkSelector: React.FC = () => {
               <p>{drink.name}</p>
               <p>Price: {drink.price.toFixed(0)}</p>
               {isDrinkSelected(drink.id) && (
-                <span className="checkmark" style={{ color: '#C16757' }}>✔️</span>
+                <span className="checkmark">✔️</span>
               )}
             </div>
           ))}
+          <ConfirmButton onClick={confirmSelection} caption="Confirm drinks"/>
         </div>
       </div>
     </>
