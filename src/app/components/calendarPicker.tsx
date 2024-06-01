@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
-import { format, isWeekend } from 'date-fns';
+import React, { useState, useEffect } from 'react';
+import { format, isWeekend, getDay, startOfMonth, endOfMonth, addMonths, subMonths } from 'date-fns';
 import './calendarPicker.css';
 
 const CalendarPicker: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('16:00');
+  const [currentMonth, setCurrentMonth] = useState(new Date());
 
-  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newDate = new Date(event.target.value);
-    if (!isWeekend(newDate)) {
-      setSelectedDate(newDate);
+  const handleDayClick = (date: Date) => {
+    if (getDay(date) !== 6 && getDay(date) !== 5) { // Ensure the clicked date is not Saturday (6) or Sunday (0)
+      setSelectedDate(date);
     }
   };
 
@@ -20,33 +20,41 @@ const CalendarPicker: React.FC = () => {
   };
 
   const renderDays = () => {
-    const startOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
-    const endOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0);
-    const daysInMonth = [];
-    
-    for (let i = 1; i <= endOfMonth.getDate(); i++) {
-      const date = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), i);
-      daysInMonth.push(
+    const start = startOfMonth(currentMonth);
+    const end = endOfMonth(currentMonth);
+    const days = [];
+    const startDate = start.getDate();
+    const endDate = end.getDate();
+    const startDay = getDay(start);
+
+    for (let i = 0; i < startDay; i++) {
+      days.push(<div key={`empty-${i}`} className="day empty"></div>);
+    }
+
+    for (let i = startDate; i <= endDate; i++) {
+      const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), i);
+      days.push(
         <div
           key={i}
-          className={`day ${isWeekend(date) ? 'weekend' : ''} ${date.getDate() === selectedDate.getDate() ? 'selected' : ''}`}
-          onClick={() => setSelectedDate(date)}
+          className={`day ${getDay(date) === 6 || getDay(date) === 5 ? 'weekend' : ''} ${date.toDateString() === selectedDate.toDateString() ? 'selected' : ''}`}
+          onClick={() => handleDayClick(date)}
+          style={{ pointerEvents: getDay(date) === 6 || getDay(date) === 5 ? 'none' : 'auto', opacity: getDay(date) === 6 || getDay(date) === 5 ? 0.5 : 1 }}
         >
           {i}
         </div>
       );
     }
 
-    return daysInMonth;
+    return days;
   };
 
   return (
     <div className="calendar-picker">
       <div className="calendar">
         <div className="header">
-          <button>←</button>
-          <span>{format(selectedDate, 'MMMM yyyy')}</span>
-          <button>→</button>
+          <button onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>←</button>
+          <span>{format(currentMonth, 'MMMM yyyy')}</span>
+          <button onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>→</button>
         </div>
         <div className="weekdays">
           {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
@@ -57,7 +65,7 @@ const CalendarPicker: React.FC = () => {
           {renderDays()}
         </div>
       </div>
-      <input type="date" onChange={handleDateChange} />
+      <input type="text" value={format(selectedDate, 'yyyy-MM-dd')} readOnly />
       <select value={selectedTime} onChange={handleTimeChange}>
         {Array.from({ length: 8 }, (_, i) => 16 + i).map((hour) => (
           <option key={hour} value={`${hour}:00`}>{`${hour}:00`}</option>
