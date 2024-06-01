@@ -1,19 +1,18 @@
 import Link from "next/link";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import Orders from "../order";
+import CalendarPicker from "../../components/calendarPicker";
 
-
-const Order = () => {
+const ConfirmOrder = () => {
     return (
         <>
             <Navbar />
             <div>
-                <Orders />
+                <CalendarPicker />
             </div>
             <Footer />
         </>
     );
 };
 
-export default Order;
+export default ConfirmOrder;
