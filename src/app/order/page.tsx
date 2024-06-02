@@ -7,14 +7,16 @@ import Orders from "./order";
 const Order = () => {
     return (
     <div className="page-body">
-      <div className="page-header">
-        <Navbar />
-        <div>
+        <div className="page-header">
+            <Navbar /> 
+        </div>
+        <div className="page-main">
             <Orders/>
         </div>
-        <Footer />
+        <div className="page-footer">
+            <Footer /> 
+        </div>
       </div>
-    </div>
     );
 };
 
