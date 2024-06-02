@@ -14,8 +14,6 @@ const Orders = () => {
     const fetchDish = await orderApi.getRandomDish();
     setDish(fetchDish);
     setSelectedDish(fetchDish);
-    localStorage.setItem("dish", JSON.stringify(fetchDish));
-    localStorage.setItem("selectedDish", JSON.stringify(fetchDish));
   }, []);
 
   const nextPage = async () => {
@@ -29,6 +27,7 @@ const Orders = () => {
   const confirmSelection = () => {
     console.log('Confirmed selected dish:', selectedDish);
     alert(`You have confirmed your selection: ${JSON.stringify(selectedDish)}`);
+    localStorage.setItem('selectedDish', JSON.stringify(selectedDish));
     nextPage();
   };
 
