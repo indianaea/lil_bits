@@ -6,11 +6,9 @@ import Drinks from "./././drink";
 const Drink = () => {
 
 return (
-  <>
     <Layout>
         <Drinks />
     </Layout>
-   </>
   );
 };
 

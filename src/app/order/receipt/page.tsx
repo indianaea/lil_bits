@@ -5,12 +5,12 @@ import Layout from '../../components/layout';
 
 const Receipt = () => {
     return (
-            <Layout>
+        <Layout>
             <div>
                 <h1>Here is your receipt</h1>
                 <Link href="/">Here will be a text about the website</Link>
             </div>
-            </Layout>
+        </Layout>
     );
 };
 

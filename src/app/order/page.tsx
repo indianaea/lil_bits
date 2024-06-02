@@ -6,9 +6,9 @@ import Orders from "./order";
 
 const Order = () => {
     return (
-    <Layout>
-        <Orders />
-    </Layout>
+        <Layout>
+            <Orders />
+        </Layout>
     );
 };
 
