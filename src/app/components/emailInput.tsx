@@ -17,6 +17,7 @@ const EmailInput: React.FC = () => {
     const newEmail = event.target.value;
     setEmail(newEmail);
     setIsValid(validateEmail(newEmail));
+    localStorage.setItem('email', JSON.stringify(newEmail));
   };
 
   return (

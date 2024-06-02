@@ -4,7 +4,7 @@ import Layout from '../../components/layout';
 import CalendarPicker from "../../components/calendarPicker";
 import PeoplePicker from "../../components/amountPeople";
 import EmailInput from "../../components/emailInput";
-import TotalOrder from "./confirm"
+import TotalOrder from './confirm'
 
 const ConfirmOrder = () => {
     return (
@@ -12,7 +12,7 @@ const ConfirmOrder = () => {
             <CalendarPicker />
             <PeoplePicker />
             <EmailInput />
-            <TotalOrder/>           
+            <TotalOrder />
         </Layout>
     );
 };
