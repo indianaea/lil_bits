@@ -21,7 +21,7 @@ const HeroSlider = () => {
                 emulateTouch={true}
                 autoFocus={false}
                 interval={5000} // Set autoplay interval
-                transitionTime={600} // Set transition time
+                transitionTime={700} // Set transition time
                 swipeScrollTolerance={5}
                 ariaLabel="Hero Slider"
             >
