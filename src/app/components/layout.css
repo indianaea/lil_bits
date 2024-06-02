@@ -1,0 +1,45 @@
+/* Ensure html and body take full height */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Flex container for the layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar stays at the top */
+.layout-header {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Main content takes remaining space */
+.layout-main {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the top */
+  margin-top: 20px; /* Add margin to push content below the navbar */
+}
+
+/* Footer stays at the bottom */
+.layout-footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  flex-shrink: 0; /* Prevent shrinking */
+}
