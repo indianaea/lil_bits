@@ -1,0 +1,28 @@
+page-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+page-header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+page-main {
+    flex: 1;
+    margin-top: 120px; 
+    padding: 20px;
+    background-color: white;
+}
+
+page-footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}

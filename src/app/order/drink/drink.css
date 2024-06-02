@@ -1,8 +1,7 @@
 
   
-  /* Ensure the drink list is positioned below the navbar */
   .drink-list-container {
-    margin-top: 120px; /* Adjust based on the height of your navbar */
+    margin-top: 120px; 
   }
   
 

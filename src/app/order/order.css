@@ -23,3 +23,18 @@
     width: 250px; /* Adjust size as needed */
     height: 250px; /* Adjust size as needed */
 }
+
+.ActionButton {
+    background-color: #e3e996;
+    color: #3E5f54;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    margin: 10px;
+    border: 2px solid transparent;
+    padding: 10px;
+}
+
+.ActionButton:hover {
+    background-color: #CF6757;
+  }

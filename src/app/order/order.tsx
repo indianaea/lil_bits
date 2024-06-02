@@ -46,8 +46,9 @@ const RandomDish = () => {
               <p>Price: {dish.price.toFixed(2)}</p>
             </div>
           )}
-          <Button onClick={confirmSelection} caption="Go To Drink Page"/> 
+          <button className="ActionButton" onClick={getRandomDish}>Get Random Dish</button>
         </div>
+        <Button onClick={confirmSelection} caption="Go To Drink Page"/> 
       </div>
     </>
   );

@@ -1,19 +1,20 @@
-import Link from "next/link";
+
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Orders from "./order";
-import RandomDish from "./order";
 
 
 const Order = () => {
     return (
-    <>
+    <div className="page-body">
+      <div className="page-header">
         <Navbar />
         <div>
-            <RandomDish/>
+            <Orders/>
         </div>
         <Footer />
-        </>
+      </div>
+    </div>
     );
 };
 
