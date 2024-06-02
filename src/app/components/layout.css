@@ -19,8 +19,8 @@ body {
   background-color: white;
   padding: 20px;
   text-align: center;
-  border-bottom: 1px solid #dee2e6;
   flex-shrink: 0; /* Prevent shrinking */
+  height: 112px;
 }
 
 /* Main content takes remaining space */
@@ -32,14 +32,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start; /* Align items to the top */
-  margin-top: 20px; /* Add margin to push content below the navbar */
 }
 
 /* Footer stays at the bottom */
 .layout-footer {
   background-color: #333;
   color: white;
-  padding: 20px 0;
+  padding: 20px;
   text-align: center;
   flex-shrink: 0; /* Prevent shrinking */
 }
