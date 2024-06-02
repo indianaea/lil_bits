@@ -26,13 +26,11 @@ let orders: Order[] = [
       id: "53051",
       category: "seafood",
       cousine: "Malaysian",
-      description:
-        "In a medium saucepan over medium heat, stir together coconut milk, water, ground ginger, ginger root, salt, bay leaf, and rice. Cover, and bring to a boil. Reduce heat, and simmer for 20 to 30 minutes, or until done.\r\n\r\n Step 2\r\nPlace eggs in a saucepan, and cover with cold water. Bring water to a boil, and immediately remove from heat. Cover, and let eggs stand in hot water for 10 to 12 minutes. Remove eggs from hot water, cool, peel and slice in half. Slice cucumber.\r\n\r\n Step 3\r\nMeanwhile, in a large skillet or wok, heat 1 cup vegetable oil over medium-high heat. Stir in peanuts and cook briefly, until lightly browned. Remove peanuts with a slotted spoon and place on paper towels to soak up excess grease. Return skillet to stove. Stir in the contents of one package anchovies; cook briefly, turning, until crisp. Remove with a slotted spoon and place on paper towels. Discard oil. Wipe out skillet.\r\n\r\n Step 4\r\nHeat 2 tablespoons oil in the skillet. Stir in the onion, garlic, and shallots; cook until fragrant, about 1 or 2 minutes. Mix in the chile paste, and cook for 10 minutes, stirring occasionally. If the chile paste is too dry, add a small amount of water. Stir in remaining anchovies; cook for 5 minutes. Stir in salt, sugar, and tamarind juice; simmer until sauce is thick, about 5 minutes.\r\n\r\n Step 5\r\nServe the onion and garlic sauce over the warm rice, and top with peanuts, fried anchovies, cucumbers, and eggs.",
-      imageSource:
-        "https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg",
+      description: "White fish in creamy sauce",
+      imageSource: "https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg",
       name: "Nasi lemak",
       price: 2500,
-    },
+      },
   },
 ];
 
@@ -41,78 +39,91 @@ let menu: Dish[] = [
     id: "1",
     category: "seafood",
     cousine: "Malaysian",
-    description:
-      "In a medium saucepan over medium heat, stir together coconut milk, water, ground ginger, ginger root, salt, bay leaf, and rice. Cover, and bring to a boil. Reduce heat, and simmer for 20 to 30 minutes, or until done.\r\n\r\n Step 2\r\nPlace eggs in a saucepan, and cover with cold water. Bring water to a boil, and immediately remove from heat. Cover, and let eggs stand in hot water for 10 to 12 minutes. Remove eggs from hot water, cool, peel and slice in half. Slice cucumber.\r\n\r\n Step 3\r\nMeanwhile, in a large skillet or wok, heat 1 cup vegetable oil over medium-high heat. Stir in peanuts and cook briefly, until lightly browned. Remove peanuts with a slotted spoon and place on paper towels to soak up excess grease. Return skillet to stove. Stir in the contents of one package anchovies; cook briefly, turning, until crisp. Remove with a slotted spoon and place on paper towels. Discard oil. Wipe out skillet.\r\n\r\n Step 4\r\nHeat 2 tablespoons oil in the skillet. Stir in the onion, garlic, and shallots; cook until fragrant, about 1 or 2 minutes. Mix in the chile paste, and cook for 10 minutes, stirring occasionally. If the chile paste is too dry, add a small amount of water. Stir in remaining anchovies; cook for 5 minutes. Stir in salt, sugar, and tamarind juice; simmer until sauce is thick, about 5 minutes.\r\n\r\n Step 5\r\nServe the onion and garlic sauce over the warm rice, and top with peanuts, fried anchovies, cucumbers, and eggs.",
-    imageSource:
-      "https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg",
+    description: "White fish in creamy sauce",
+    imageSource: "https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg",
     name: "Nasi lemak",
     price: 2500,
   },
   {
     id: "2",
-    category: "vegetarian",
-    cousine: "Indian",
-    description:
-      "A rich, creamy blend of spinach and spices, cooked with paneer cheese. Sauté onions, garlic, and ginger in oil until tender. Add spinach and cook until wilted. Puree mixture, then return to pan and add spices and paneer. Simmer until flavors meld.",
-    imageSource:
-      "https://www.themealdb.com/images/media/meals/wuxrtu1483564410.jpg",
-    name: "Palak Paneer",
-    price: 2000,
+    category: "seafood",
+    cousine: "Japanese",
+    description: "Fresh sushi rolls",
+    imageSource: "https://www.themealdb.com/images/media/meals/uwxusv1487344500.jpg",
+    name: "Sushi",
+    price: 1800,
   },
   {
     id: "3",
     category: "meat",
-    cousine: "Mexican",
-    description:
-      "Marinated pork, slow-cooked with spices and served with tortillas, pineapple, and salsa. Season pork with a blend of chili powder, cumin, and pineapple juice. Cook in a slow cooker until tender, then shred and serve with fresh toppings.",
-    imageSource:
-      "https://www.themealdb.com/images/media/meals/vsrupw1511460963.jpg",
-    name: "Tacos al Pastor",
-    price: 3000,
+    cousine: "Italian",
+    description: "Classic spaghetti with meatballs",
+    imageSource: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
+    name: "Spaghetti Bolognese",
+    price: 2000,
   },
   {
     id: "4",
-    category: "seafood",
-    cousine: "Japanese",
-    description:
-      "A traditional Japanese dish featuring fresh fish and seafood over vinegared rice. Top sushi rice with slices of fresh tuna, salmon, and shrimp. Serve with soy sauce, wasabi, and pickled ginger.",
-    imageSource:
-      "https://www.themealdb.com/images/media/meals/uwxusv1487344500.jpg",
-    name: "Sushi",
-    price: 3500,
+    category: "vegetarian",
+    cousine: "Indian",
+    description: "Spiced chickpeas in a rich tomato sauce",
+    imageSource: "https://www.themealdb.com/images/media/meals/xutquv1505330523.jpg",
+    name: "Chana Masala",
+    price: 1500,
   },
   {
     id: "5",
-    category: "meat",
-    cousine: "American",
-    description:
-      "A juicy, grilled beef patty topped with cheddar cheese, lettuce, tomato, and pickles, served on a toasted bun. Grill beef patty to desired doneness, add cheese, and assemble with fresh vegetables on a bun.",
-    imageSource:
-      "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
-    name: "Cheeseburger",
-    price: 1800,
+    category: "seafood",
+    cousine: "Spanish",
+    description: "A traditional Spanish seafood dish with rice",
+    imageSource: "https://www.themealdb.com/images/media/meals/vwwspt1487394060.jpg",
+    name: "Paella",
+    price: 3000,
   },
   {
     id: "6",
-    category: "dessert",
-    cousine: "French",
-    description:
-      "A light, flaky pastry filled with rich vanilla custard and topped with a glossy caramel glaze. Prepare choux pastry, bake until golden, then fill with custard and drizzle with caramel.",
-    imageSource:
-      "https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg",
-    name: "Éclair",
-    price: 1200,
+    category: "meat",
+    cousine: "American",
+    description: "Grilled steak with garlic butter",
+    imageSource: "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+    name: "Grilled Steak",
+    price: 3500,
   },
   {
     id: "7",
     category: "vegetarian",
-    cousine: "Italian",
-    description:
-      "A classic Italian pasta dish made with fresh tomatoes, basil, garlic, and olive oil. Cook pasta al dente, then toss with a sauce of sautéed tomatoes, garlic, and fresh basil. Top with grated Parmesan cheese.",
-    imageSource:
-      "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
-    name: "Spaghetti al Pomodoro",
+    cousine: "Greek",
+    description: "A fresh salad with tomatoes, cucumbers, and feta cheese",
+    imageSource: "https://www.themealdb.com/images/media/meals/urtwux1486983078.jpg",
+    name: "Greek Salad",
+    price: 1200,
+  },
+  {
+    id: "8",
+    category: "dessert",
+    cousine: "French",
+    description: "A classic French dessert with caramelized sugar",
+    imageSource: "https://www.themealdb.com/images/media/meals/ryspuw1468923356.jpg",
+    name: "Crème Brûlée",
+    price: 900,
+  },
+  {
+    id: "9",
+    category: "seafood",
+    cousine: "Thai",
+    description: "Spicy shrimp soup with lemongrass and coconut milk",
+    imageSource: "https://www.themealdb.com/images/media/meals/1529445367.jpg",
+    name: "Tom Yum Goong",
     price: 2200,
+  },
+  {
+    id: "10",
+    category: "meat",
+    cousine: "Mexican",
+    description: "Tacos with beef, cheese, and fresh salsa",
+    imageSource: "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg",
+    name: "Tacos",
+    price: 1700,
   },
 ];
 
