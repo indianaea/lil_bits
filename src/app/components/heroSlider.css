@@ -1,7 +1,7 @@
 .carousel-wrapper {
   width: 500px; /* Set the width of the square */
   height: 500px; /* Set the height of the square */
-  position: absolute;
+  position: fixed;
   top: 50%; /* Center vertically */
   right: 0; /* Align to the right */
   transform: translateY(-50%); /* Center vertically */
