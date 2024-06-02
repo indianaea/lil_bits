@@ -1,4 +1,5 @@
 "use client";
+
 import { useCallback, useEffect, useState } from "react";
 import { orderApi } from "../api/orderApi";
 import { DishType } from "../api/types";
@@ -33,12 +34,11 @@ const Orders = () => {
 
   return (
     <>
-      <div className="order-list-container">
-        <div className="DivOrders">
+        <div className="OrdersContainer">
           {dish && selectedDish && (
             <div
               key={dish.id}
-              className={`dish selected`}
+              className="DishSelected"
             >
               <p>{dish.name}</p>
               <img src={dish.imageSource} alt={dish.name} />
@@ -49,7 +49,6 @@ const Orders = () => {
           <button className="ActionButton" onClick={getRandomDish}>Get Random Dish</button>
         </div>
         <Button onClick={confirmSelection} caption="Go To Drink Page"/> 
-      </div>
     </>
   );
 };

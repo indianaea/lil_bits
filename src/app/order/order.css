@@ -1,40 +1,36 @@
-
-.order-list-container {
-    margin-top: 120px; 
-}
-
-.DivOrders {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 40px;
+.OrdersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px;
+  padding-left: 20px;
 }
 
 .DishContainer {
-    cursor: pointer;
-    position: relative;
-    margin: 10px;
-    border: 2px solid transparent;
-    padding: 10px;
+  cursor: pointer;
+  position: relative;
+  margin: 10px;
+  border: 2px solid transparent;
+  padding: 10px;
 }
 
 .dish img {
-    width: 250px; /* Adjust size as needed */
-    height: 250px; /* Adjust size as needed */
+  width: 250px; /* Adjust size as needed */
+  height: 250px; /* Adjust size as needed */
 }
 
 .ActionButton {
-    background-color: #e3e996;
-    color: #3E5f54;
-    border: none;
-    border-radius: 5px;
-    position: relative;
-    margin: 10px;
-    border: 2px solid transparent;
-    padding: 10px;
+  background-color: #e3e996;
+  color: #3e5f54;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  margin: 10px;
+  border: 2px solid transparent;
+  padding: 10px;
 }
 
 .ActionButton:hover {
-    background-color: #CF6757;
-  }
+  background-color: #cf6757;
+}

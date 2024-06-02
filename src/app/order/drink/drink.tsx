@@ -50,8 +50,7 @@ const DrinkSelector: React.FC = () => {
 
   return (
     <>
-      <div className="drink-list-container">
-        <div className="DivDrinks">
+        <div className="DrinksContainer">
           {drinks.map(drink => (
             <div
               key={drink.id}
@@ -68,7 +67,6 @@ const DrinkSelector: React.FC = () => {
           ))}
         </div>
         <Button onClick={confirmSelection} caption="Confirm drinks"/>
-      </div>
     </>
   );
 };

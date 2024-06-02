@@ -1,11 +1,4 @@
-
-  
-  .drink-list-container {
-    margin-top: 120px; 
-  }
-  
-
-.DivDrinks {
+.DrinksContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -22,7 +15,7 @@
 }
 
 .drink.selected {
-    border-color: #3E6053;
+  border-color: #3e6053;
 }
 
 .drink img {
@@ -31,9 +24,9 @@
 }
 
 .checkmark {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 24px;
-    color: #C16757;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 24px;
+  color: #c16757;
 }
