@@ -5,7 +5,7 @@ import { DishType } from "../api/types";
 import Button from '../components/button';
 import "./order.css";
 
-const RandomDish = () => {
+const Orders = () => {
   const [dish, setDish] = useState<DishType | undefined>(undefined);
   const [selectedDish, setSelectedDish] = useState<DishType | undefined>(undefined);
 
@@ -54,4 +54,4 @@ const RandomDish = () => {
   );
 };
 
-export default RandomDish;
+export default Orders;
