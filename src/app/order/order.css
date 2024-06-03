@@ -1,36 +1,65 @@
 .OrdersContainer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 40px;
   padding-left: 20px;
 }
 
-.DishContainer {
-  cursor: pointer;
-  position: relative;
+.DishSelected {
+  display: flex;
+  align-items: center;
   margin: 10px;
   border: 2px solid transparent;
   padding: 10px;
 }
 
-.dish img {
-  width: 250px; /* Adjust size as needed */
-  height: 250px; /* Adjust size as needed */
+.DishImage {
+  width: 300px; /* Increased size */
+  height: 300px; /* Increased size */
+  margin-right: 20px;
 }
 
-.ActionButton {
+.DishDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.DishName {
+  font-weight: bold; /* Bold text */
+  margin: 5px 0;
+}
+
+.DishDescription,
+.DishPrice {
+  margin: 5px 0;
+}
+
+.ButtonContainer {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.GetRandomDishButton {
   background-color: #e3e996;
   color: #3e5f54;
   border: none;
   border-radius: 5px;
-  position: relative;
-  margin: 10px;
-  border: 2px solid transparent;
-  padding: 10px;
+  padding: 10px 20px; /* Smaller width */
 }
 
-.ActionButton:hover {
+.GetRandomDishButton:hover {
   background-color: #cf6757;
+}
+
+.GoToDrinkPageButton {
+  background-color: #8ecae6;
+  color: #023047;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px; /* Smaller width */
+}
+
+.GoToDrinkPageButton:hover {
+  background-color: #219ebc;
 }

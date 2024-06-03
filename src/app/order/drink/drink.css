@@ -12,6 +12,11 @@
   margin: 10px;
   border: 2px solid transparent;
   padding: 10px;
+  width: calc(
+    25% - 40px
+  ); /* Four drinks per row, adjusting for margins and padding */
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .drink.selected {
@@ -19,8 +24,22 @@
 }
 
 .drink img {
-  width: 100px; /* Adjust size as needed */
-  height: 100px; /* Adjust size as needed */
+  width: 150px; /* Increased size */
+  height: 150px; /* Increased size */
+  border-radius: 50%; /* Rounded images */
+  border: 5px solid; /* Use solid border */
+}
+
+.yellow-border {
+  border-color: yellow; /* Yellow solid border */
+}
+
+.green-border {
+  border-color: green; /* Green solid border */
+}
+
+.red-border {
+  border-color: red; /* Red solid border */
 }
 
 .checkmark {

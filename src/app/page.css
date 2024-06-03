@@ -3,6 +3,7 @@
   align-items: center; /* Center items vertically */
   padding: 20px;
   justify-content: space-between; /* Distribute space between items */
+  margin-bottom: 40px; /* Ensure some space below the hero section */
 }
 
 .HeroText {
@@ -62,4 +63,12 @@
     width: 100%; /* Make the button full width */
     text-align: center; /* Center text */
   }
+}
+
+.FindOrderSection {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0; /* Add padding for space around the FindOrder component */
 }

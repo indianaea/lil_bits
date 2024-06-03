@@ -33,21 +33,22 @@ const Orders = () => {
 
   return (
     <>
-        <div className="OrdersContainer">
-          {dish && selectedDish && (
-            <div
-              key={dish.id}
-              className="DishSelected"
-            >
-              <p>{dish.name}</p>
-              <img src={dish.imageSource} alt={dish.name} />
-              <p>{dish.description}</p>
-              <p>Price: {dish.price.toFixed(2)}</p>
+      <div className="OrdersContainer">
+        {dish && selectedDish && (
+          <div key={dish.id} className="DishSelected">
+            <img src={dish.imageSource} alt={dish.name} className="DishImage" />
+            <div className="DishDetails">
+              <p className="DishName">{dish.name}</p>
+              <p className="DishDescription">{dish.description}</p>
+              <p className="DishPrice">Price: ${dish.price.toFixed(2)}</p>
+              <div className="ButtonContainer">
+                <button className="GetRandomDishButton" onClick={getRandomDish}>Get Random Dish</button>
+                <button className="GoToDrinkPageButton" onClick={confirmSelection}>Go To Drink Page</button>
+              </div>
             </div>
-          )}
-          <button className="ActionButton" onClick={getRandomDish}>Get Random Dish</button>
-        </div>
-        <Button onClick={confirmSelection} caption="Go To Drink Page"/> 
+          </div>
+        )}
+      </div>
     </>
   );
 };
