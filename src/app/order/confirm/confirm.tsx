@@ -6,118 +6,61 @@ import Button from '../../components/button';
 import "./confirm.css";
 
 const TotalOrder: React.FC = () => {
+  const [newOrder, setNewOrder] = useState<OrderType | null>(null);
 
-  const getSelectedDish = (): DishType => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      let dishString = localStorage.getItem("selectedDish");
+  useEffect(() => {
+    const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
+      const item = localStorage.getItem(key);
+      return item ? JSON.parse(item) as T : defaultValue;
+    };
 
-      let emptyDish: DishType = {
-        id: 0,
-        category: "",
-        cousine: "",
-        description: "",
-        imageSource: "",
-        name: "",
-        price: 0,
-      };
+    const emptyDish: DishType = {
+      id: 0,
+      category: "",
+      cousine: "",
+      description: "",
+      imageSource: "",
+      name: "",
+      price: 0,
+    };
 
-      if (dishString) {
-        try {
-          const dish: DishType = JSON.parse(dishString) as DishType;
-          return dish;
-        } catch (error) {
-          console.error("Error parsing dish from localStorage", error);
-          return emptyDish;
-        }
-      } else {
-        console.log("No dish found in localStorage");
-        return emptyDish;
-      }
-    } else {
-      return {
-        id: 0,
-        category: "",
-        cousine: "",
-        description: "",
-        imageSource: "",
-        name: "",
-        price: 0,
-      };
-    }
-  };
+    const selectedDish = getLocalStorageItem<DishType>("selectedDish", emptyDish);
+    const selectedDrinks = getLocalStorageItem<DrinkType[]>("selectedDrinks", []);
 
-  const getSelectedDrinks = (): DrinkType[] => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      let drinksString = localStorage.getItem("selectedDrinks");
-      if (drinksString) {
-        try {
-          const drinks: DrinkType[] = JSON.parse(drinksString) as DrinkType[];
-          return drinks;
-        } catch (error) {
-          console.error("Error parsing drinks from localStorage", error);
-          return [];
-        }
-      } else {
-        console.log("No drinks found in localStorage");
-        return [];
-      }
-    } else {
-      return [];
-    }
-  };
+    const calculateTotalPrice = (): number => {
+      return selectedDish.price + selectedDrinks.reduce((total, drink) => total + drink.price, 0);
+    };
 
-  const selectedDish = getSelectedDish();
-  const selectedDrinks = getSelectedDrinks();
+    const order: OrderType = {
+      id: 1,
+      orderDate: new Date(),
+      dish: selectedDish,
+      drinks: selectedDrinks,
+      email: "",
+      totalAmount: calculateTotalPrice(),
+      count: 1,
+      time: ""
+    };
 
-  const calculateTotalPrice = (): number => {
-    let total = selectedDish.price;
-    selectedDrinks.forEach(drink => {
-      total += drink.price;
-    });
-    return total;
-  };
-
-  const getOrder = (): OrderType => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      let newOrder: OrderType = {
-        id: 1,
-        orderDate: new Date(),
-        dish: selectedDish, 
-        drinks: selectedDrinks,
-        email: "",
-        totalAmount: calculateTotalPrice(),
-        count: 1,
-        date: new Date()};
-      localStorage.setItem('newOrder', JSON.stringify(newOrder));
-      return newOrder;
-    } else {
-      return {
-        id: 0,
-        email: "",
-        dish: {id: 0, category: "", cousine: "", description: "", imageSource: "", name: "", price: 0}, 
-        drinks: [],
-        count: 0,
-        date: new Date(),
-        orderDate: new Date(),       
-        totalAmount: 0};
-    } 
-  }
-
-  const newOrder = getOrder();
+    localStorage.setItem('newOrder', JSON.stringify(order));
+    setNewOrder(order);
+  }, []);
 
   const confirmOrder = async () => {
     window.location.href = "/order/receipt";
   };
 
+  if (!newOrder) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
-    <div className="confirm-container">
-
-        <h1>Order total amount</h1>
-        <p>{newOrder.totalAmount.toFixed(0)}</p>
-
-    </div>
-    <Button onClick={confirmOrder} caption="Go Receipt Page"/> 
+      <div className="confirm-container">
+        <h1>Total Amount</h1>
+          <p><strong>{newOrder.totalAmount.toFixed(0)}</strong></p>
+      </div>
+      <Button onClick={confirmOrder} caption="Go to Receipt Page"/>
     </>
   );
 };
