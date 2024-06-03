@@ -23,7 +23,7 @@ let orders: Order[] = [
     count: 10,
     date: new Date(),
     dish: {
-      id: "53051",
+      id: "1",
       category: "seafood",
       cousine: "Malaysian",
       description: "White fish in creamy sauce",

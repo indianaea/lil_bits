@@ -12,11 +12,14 @@ const CalendarPicker: React.FC = () => {
   const handleDayClick = (date: Date) => {
     if (getDay(date) !== 6 && getDay(date) !== 5) { // Ensure the clicked date is not Saturday (6) or Sunday (0)
       setSelectedDate(date);
+      localStorage.setItem('selectedDate', JSON.stringify(date));
     }
   };
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedTime(event.target.value);
+    const selectedTime = event.target.value; 
+    setSelectedTime(selectedTime);
+    localStorage.setItem('selectedTime', JSON.stringify(selectedTime));
   };
 
   const renderDays = () => {

@@ -8,6 +8,7 @@ const PeoplePicker: React.FC = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setNumberOfPeople(Number(event.target.value));
+    localStorage.setItem('numberOfPeople', JSON.stringify(event.target.value));
   };
 
   return (
