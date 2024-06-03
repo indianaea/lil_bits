@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { OrderType, DishType, DrinkType } from "../../api/types";
+import { orderApi } from "../../api/orderApi";
 import Button from '../../components/button';
 import "./confirm.css";
 
@@ -12,6 +13,10 @@ const TotalOrder: React.FC = () => {
     const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
       const item = localStorage.getItem(key);
       return item ? JSON.parse(item) as T : defaultValue;
+    };
+
+    const getLocalStorageString = (key: string, defaultValue: string): string => {
+      return localStorage.getItem(key) || defaultValue;
     };
 
     const emptyDish: DishType = {
@@ -26,27 +31,37 @@ const TotalOrder: React.FC = () => {
 
     const selectedDish = getLocalStorageItem<DishType>("selectedDish", emptyDish);
     const selectedDrinks = getLocalStorageItem<DrinkType[]>("selectedDrinks", []);
+    const count = getLocalStorageItem<number>("numberOfPeople", 0);
 
     const calculateTotalPrice = (): number => {
       return selectedDish.price + selectedDrinks.reduce((total, drink) => total + drink.price, 0);
     };
 
-    const order: OrderType = {
-      id: 1,
-      orderDate: new Date(),
+    let newOrder: OrderType = {
+      id: 0,
+      orderDate: new Date(getLocalStorageString("selectedDate", new Date().toISOString())),
       dish: selectedDish,
       drinks: selectedDrinks,
-      email: "",
-      totalAmount: calculateTotalPrice(),
-      count: 1,
-      time: ""
+      email: getLocalStorageString("email", ""),
+      totalAmount: calculateTotalPrice() * count,
+      count: count,
+      time: getLocalStorageString("selectedTime", "")
     };
-
-    localStorage.setItem('newOrder', JSON.stringify(order));
-    setNewOrder(order);
+  
+    setNewOrder(newOrder);
   }, []);
+  
 
   const confirmOrder = async () => {
+    if (!newOrder) return;
+    try {newOrder
+      const response = await orderApi.postOrder(newOrder);
+      //newOrder.id = response.OrderType.id;
+      //lert(`new order: ${JSON.stringify(newOrder)}`);
+    } catch (err) {
+      console.error('Error posting order:', err);
+    }   
+    localStorage.setItem('newOrder', JSON.stringify(newOrder));    
     window.location.href = "/order/receipt";
   };
 
@@ -56,11 +71,7 @@ const TotalOrder: React.FC = () => {
 
   return (
     <>
-      <div className="confirm-container">
-        <h1>Total Amount</h1>
-          <p><strong>{newOrder.totalAmount.toFixed(0)}</strong></p>
-      </div>
-      <Button onClick={confirmOrder} caption="Go to Receipt Page"/>
+      <Button onClick={confirmOrder} caption="Confirm order"/>
     </>
   );
 };

@@ -17,6 +17,7 @@ export type DrinkType = Provision & {
 
 
 export type OrderType = {
+  [x: string]: any;
 	id: number;
 	email: string;
 	dish: DishType;

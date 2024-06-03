@@ -26,7 +26,7 @@ const Orders = () => {
 
   const confirmSelection = () => {
     console.log('Confirmed selected dish:', selectedDish);
-    alert(`You have confirmed your selection: ${JSON.stringify(selectedDish)}`);
+    //alert(`You have confirmed your selection: ${JSON.stringify(selectedDish)}`);
     localStorage.setItem('selectedDish', JSON.stringify(selectedDish));
     nextPage();
   };
