@@ -22,7 +22,7 @@ export type OrderType = {
 	dish: DishType;
 	drinks: DrinkType[];
 	count: number;
-	date: Date;
+	time: string;
 	orderDate: Date;
 	totalAmount: number;
 };
