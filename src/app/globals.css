@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Define global colors */
+  --primary-color: #e3e996;
+  --secondary-color: #3e5f54;
+  --background-color: #cf6757;
+  --text-color: #333333;
+  --header-background: #333333;
+  --footer-background: #333333;
+  --button-color: #0070f3;
+  --button-hover-color: #005bb5;
+}
+
+.colors {
+  yellow: #e3e996;
+  green: #3e5f54;
+  red: #cf6757;
+}

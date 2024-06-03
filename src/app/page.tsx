@@ -3,6 +3,7 @@
 import Layout from './components/layout';
 import HeroSlider from "./components/heroSlider"; // Adjust the path as necessary
 import Button from "./components/button"; // Adjust the path as necessary
+import './page.css';
 
 const nextPage = async () => {
   window.location.href = "/order";
@@ -11,21 +12,15 @@ const nextPage = async () => {
 const FrontPage = () => {
   return (
     <Layout>
-      <HeroSlider />
-      <Button onClick={nextPage} caption="Order" />
+      <div className="HeroSection">
+        <div className="HeroText">
+          <h1>Welcome to Our Service</h1>
+          <Button onClick={nextPage} caption="Order" />
+        </div>
+        <HeroSlider />
+      </div>
     </Layout>
   );
 };
 
 export default FrontPage;
-
-/* 
-export default function FrontPage() {
-  return (
-    <Layout>
-      <HeroSlider />
-      <Button onClick={nextPage} caption="Order" />
-    </Layout>  
-  );
-}
-*/

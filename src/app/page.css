@@ -1,0 +1,65 @@
+.HeroSection {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  padding: 20px;
+  justify-content: space-between; /* Distribute space between items */
+}
+
+.HeroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  margin-right: 40px; /* Space between text and slider */
+  flex: 1;
+  font: "Poppins", sans-serif;
+}
+
+.HeroText h1 {
+  font-size: 3rem; /* Increase the font size */
+  margin-bottom: 20px; /* Add space between h1 and button */
+  font: "Poppins", sans-serif;
+}
+
+.button {
+  padding: 10px 30px; /* Make the button bigger */
+  font-size: 20px; /* Increase font size */
+  background-color: #3e5f54;
+  color: #cf6757;
+  border: none;
+  border-radius: 32px;
+  text-align: center;
+  text-decoration: none;
+  font: "Poppins", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #cf6757;
+  color: #3e5f54;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .HeroSection {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .HeroText {
+    align-items: center; /* Center text and button horizontally */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 20px; /* Add bottom margin to separate from slider */
+  }
+
+  .HeroText h1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+    text-align: center; /* Center text */
+  }
+
+  .button {
+    width: 100%; /* Make the button full width */
+    text-align: center; /* Center text */
+  }
+}

@@ -4,9 +4,9 @@
   display: flex;
   justify-content: center; /* Center the content horizontally */
   align-items: center; /* Center the content vertically */
-  background-color: rgba(75, 85, 99, 0.9); /* More visible for testing */
+  background-color: #cf6757; /* More visible for testing */
   color: white;
-  font-family: sans-serif;
+  font: "Poppins", sans-serif;
   padding: 16px; /* Add horizontal padding */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border-radius: 36px;

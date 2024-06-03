@@ -1,4 +1,12 @@
-/* Adjust hero slider */
+.carousel-container {
+  border: 20px solid #3e5f54; /* Green border */
+  border-radius: 26px;
+  padding: 10px; /* Add some padding around the slider */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .carousel-wrapper {
   width: 100%;
   max-width: 400px;
