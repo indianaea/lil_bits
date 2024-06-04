@@ -13,7 +13,6 @@ const getOrders = async (): Promise<OrderType[]> => {
 };
 
 const getRandomDish = async (): Promise<DishType> => {
-  const id = Math.floor(Math.random() * 6) + 1;
 
   const res = await fetch("http://localhost:3001/api/menu");
 
@@ -24,6 +23,19 @@ const getRandomDish = async (): Promise<DishType> => {
   const menuList: DishType = await res.json();
   console.log("getting menu", menuList);
   return menuList;
+}
+
+const getOrder = async (email: string): Promise<OrderType> => {
+
+  const res = await fetch("http://localhost:3001/api/order/" + email);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch order");
+  }
+
+  const order: OrderType = await res.json();
+  console.log("getting order", order);
+  return order;
 }
 
 
@@ -47,6 +59,7 @@ const postOrder = async (order: OrderType): Promise<OrderType> => {
 
 export const orderApi = {
   getOrders,
+  getOrder,
   postOrder,
   getRandomDish
 };

@@ -1,42 +1,14 @@
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { Order, Dish } from "./types";
+import { OrderType, DishType } from "./types";
 
-let nextId = 2;
-let orders: Order[] = [
+let nextId = 1;
+let orders: OrderType[] = [];
+
+let menu: DishType[] = [
   {
     id: 1,
-    drinks: [
-      {
-        brewer: "vifilfell",
-        category: "beer",
-        description: "tasty beer",
-        id: "some-uuid",
-        imageSource:
-          "https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg",
-        name: "Gylltur",
-        price: 2500,
-      },
-    ],
-    email: "gunnsteinnskula@gmail.com",
-    count: 10,
-    date: new Date(),
-    dish: {
-      id: "1",
-      category: "seafood",
-      cousine: "Malaysian",
-      description: "White fish in creamy sauce",
-      imageSource: "https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg",
-      name: "Nasi lemak",
-      price: 2500,
-      },
-  },
-];
-
-let menu: Dish[] = [
-  {
-    id: "1",
     category: "seafood",
     cousine: "Malaysian",
     description: "White fish in creamy sauce",
@@ -45,7 +17,7 @@ let menu: Dish[] = [
     price: 2500,
   },
   {
-    id: "2",
+    id: 2,
     category: "seafood",
     cousine: "Japanese",
     description: "Fresh sushi rolls",
@@ -54,7 +26,7 @@ let menu: Dish[] = [
     price: 1800,
   },
   {
-    id: "3",
+    id: 3,
     category: "meat",
     cousine: "Italian",
     description: "Classic spaghetti with meatballs",
@@ -63,7 +35,7 @@ let menu: Dish[] = [
     price: 2000,
   },
   {
-    id: "4",
+    id: 4,
     category: "vegetarian",
     cousine: "Indian",
     description: "Spiced chickpeas in a rich tomato sauce",
@@ -72,7 +44,7 @@ let menu: Dish[] = [
     price: 1500,
   },
   {
-    id: "5",
+    id: 5,
     category: "seafood",
     cousine: "Spanish",
     description: "A traditional Spanish seafood dish with rice",
@@ -81,7 +53,7 @@ let menu: Dish[] = [
     price: 3000,
   },
   {
-    id: "6",
+    id: 6,
     category: "meat",
     cousine: "American",
     description: "Grilled steak with garlic butter",
@@ -90,7 +62,7 @@ let menu: Dish[] = [
     price: 3500,
   },
   {
-    id: "7",
+    id: 7,
     category: "vegetarian",
     cousine: "Greek",
     description: "A fresh salad with tomatoes, cucumbers, and feta cheese",
@@ -99,7 +71,7 @@ let menu: Dish[] = [
     price: 1200,
   },
   {
-    id: "8",
+    id: 8,
     category: "dessert",
     cousine: "French",
     description: "A classic French dessert with caramelized sugar",
@@ -108,7 +80,7 @@ let menu: Dish[] = [
     price: 900,
   },
   {
-    id: "9",
+    id: 9,
     category: "seafood",
     cousine: "Thai",
     description: "Spicy shrimp soup with lemongrass and coconut milk",
@@ -117,7 +89,7 @@ let menu: Dish[] = [
     price: 2200,
   },
   {
-    id: "10",
+    id: 10,
     category: "meat",
     cousine: "Mexican",
     description: "Tacos with beef, cheese, and fresh salsa",
@@ -144,21 +116,19 @@ api.get("/api/menu", (req, res) => {
   return res.json(menu[index]);
 });
 
-const isOrder = (body: Order | Record<string, unknown>): body is Order => {
+const isOrder = (body: any): body is OrderType => {
   if (
-    "name" in body &&
-    typeof body.name === "string" &&
-    "email" in body &&
-    typeof body.email === "string" &&
-    "dish" in body &&
-    typeof body.dish === "object"
+    typeof body === "object" &&
+    "id" in body && typeof body.id === "number" &&
+    "email" in body && typeof body.email === "string" &&
+    "totalAmount" in body && typeof body.totalAmount === "number"
   ) {
     return true;
   }
   return false;
 };
 
-api.post("/api/create-order", (req: Request<Order>, res) => {
+api.post("/api/create-order", (req: Request<OrderType>, res) => {
   const emailAlreadyTaken = () => {
     if (!req.body.email) {
       return false;
@@ -183,11 +153,11 @@ api.post("/api/create-order", (req: Request<Order>, res) => {
     return;
   }
 
-  const order: Order = {
+  const order: OrderType = {
     ...req.body,
     id: nextId,
   };
-
+  
   orders.push(order);
   nextId += 1;
 
@@ -197,7 +167,7 @@ api.post("/api/create-order", (req: Request<Order>, res) => {
   });
 });
 
-api.put("/api/update-order", (req: Request<Order>, res) => {
+api.put("/api/update-order", (req: Request<OrderType>, res) => {
   const emailDoesNotExist = () => {
     if (!req.body.email) {
       return false;

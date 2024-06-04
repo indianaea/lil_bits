@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { OrderType, DishType, DrinkType } from "../../api/types";
+import { OrderType, DishType} from "../../api/types";
 import "./receipt.css";
 import Button from '../../components/button';
 
@@ -12,10 +12,6 @@ const OrderReceipt: React.FC = () => {
     const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
       const item = localStorage.getItem(key);
       return item ? (JSON.parse(item) as T) : defaultValue;
-    };
-
-    const getLocalStorageString = (key: string, defaultValue: string): string => {
-      return localStorage.getItem(key) || defaultValue;
     };
 
     const emptyDish: DishType = {
@@ -40,19 +36,15 @@ const OrderReceipt: React.FC = () => {
         totalAmount: 0,
       };
 
-      const order = getLocalStorageItem<OrderType>("newOrder", emptyOrder);
-      order.email = getLocalStorageString("email", "");
-      order.count = getLocalStorageItem<number>("numberOfPeople", 0);
-      order.time = getLocalStorageString("selectedTime", "");
-      order.orderDate = new Date(getLocalStorageString("selectedDate", new Date().toISOString()));
+      const order = getLocalStorageItem<OrderType>("newOrder", emptyOrder);      
       return order;
     };
 
     setNewOrder(getOrder());
   }, []);
 
-  const placeOrder = () => {
-    alert(`You have confirmed your order`);
+  const homePage = async () => {
+    window.location.href = "/";
   };
 
   if (!newOrder) {
@@ -62,7 +54,13 @@ const OrderReceipt: React.FC = () => {
   return (
     <>
       <div className="receipt-container">
-        <h1>Order Summary</h1>
+        <h1>Order {newOrder.id} summary</h1>
+        <div className="order-details">
+          <p><strong>Email:</strong> {newOrder.email}</p>
+          <p><strong>Date:</strong> {new Date(newOrder.orderDate).toLocaleDateString()}</p>
+          <p><strong>People:</strong> {newOrder.count}</p>
+          <p><strong>Time:</strong> {newOrder.time}</p>
+        </div>
         <div className="order-details">
           <h2>Dish</h2>
           <p><strong>Name:</strong> {newOrder.dish.name}</p>
@@ -79,7 +77,7 @@ const OrderReceipt: React.FC = () => {
             newOrder.drinks.map(drink => (
               <div key={drink.id} className="drink-item">
                 <p><strong>Name:</strong> {drink.name}</p>
-                <p><strong>Price:</strong> {drink.price.toFixed(2)}</p>
+                <p><strong>Price:</strong> {drink.price.toFixed(0)}</p>
               </div>
             ))
           )}
@@ -89,7 +87,7 @@ const OrderReceipt: React.FC = () => {
           <p><strong>{newOrder.totalAmount.toFixed(2)}</strong></p>
         </div>
       </div>
-      <Button onClick={placeOrder} caption="Confirm order"/>
+      <Button onClick={homePage} caption="Back to home page"/>
     </>
   );
 };

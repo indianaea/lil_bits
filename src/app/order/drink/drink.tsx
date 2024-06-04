@@ -43,7 +43,7 @@ const DrinkSelector: React.FC = () => {
   };
 
   const confirmSelection = () => {
-    alert(`You have confirmed your selection: ${JSON.stringify(selectedDrinks)}`);
+    //alert(`You have confirmed your selection: ${JSON.stringify(selectedDrinks)}`);
     window.location.href = "/order/confirm";
   };
 
