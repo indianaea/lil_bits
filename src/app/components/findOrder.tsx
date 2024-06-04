@@ -16,7 +16,7 @@ const FindOrder = () => {
 
   return (
     <div className="find-order-container">
-      <h2 className="title">Find Your Order</h2>
+      <h2 className="title">Find your order!</h2>
       <label className="email-label" htmlFor="email">Enter your email</label>
       <input
         type="email"
