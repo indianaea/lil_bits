@@ -8,17 +8,9 @@ import "./confirm.css";
 
 const TotalOrder: React.FC = () => {
   const [newOrder, setNewOrder] = useState<OrderType | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
-      const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) as T : defaultValue;
-    };
-
-    const getLocalStorageString = (key: string, defaultValue: string): string => {
-      return localStorage.getItem(key) || defaultValue;
-    };
-
     const emptyDish: DishType = {
       id: 0,
       category: "",
@@ -39,25 +31,41 @@ const TotalOrder: React.FC = () => {
 
     let newOrder: OrderType = {
       id: 0,
-      orderDate: new Date(getLocalStorageString("selectedDate", new Date().toISOString())),
+      orderDate: new Date(),
       dish: selectedDish,
       drinks: selectedDrinks,
-      email: getLocalStorageString("email", ""),
+      email: "",
       totalAmount: calculateTotalPrice() * count,
       count: count,
-      time: getLocalStorageString("selectedTime", "")
+      time: ""
     };
-  
+
     setNewOrder(newOrder);
+    setIsLoading(false);
   }, []);
-  
+
+  const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) as T : defaultValue;
+  };
+
+  const getLocalStorageString = (key: string, defaultValue: string): string => {
+    return localStorage.getItem(key) || defaultValue;
+  };
+
 
   const confirmOrder = async () => {
     if (!newOrder) return;
     try {newOrder
+      newOrder.email = getLocalStorageString("email", "");
+      newOrder.orderDate = new Date(getLocalStorageString("selectedDate", new Date().toISOString()));
+      newOrder.time = getLocalStorageString("selectedTime", "");
+
       const response = await orderApi.postOrder(newOrder);
-      //newOrder.id = response.OrderType.id;
-      //lert(`new order: ${JSON.stringify(newOrder)}`);
+
+      const getOrder = await orderApi.getOrder(newOrder.email);
+      //alert(`Get order via email: ${JSON.stringify(getOrder)}`);
+
     } catch (err) {
       console.error('Error posting order:', err);
     }   
@@ -65,7 +73,7 @@ const TotalOrder: React.FC = () => {
     window.location.href = "/order/receipt";
   };
 
-  if (!newOrder) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 

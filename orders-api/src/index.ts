@@ -3,7 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { OrderType, DishType } from "./types";
 
-let nextId = 2;
+let nextId = 1;
 let orders: OrderType[] = [];
 
 let menu: DishType[] = [
@@ -158,7 +158,6 @@ api.post("/api/create-order", (req: Request<OrderType>, res) => {
     id: nextId,
   };
   
-  order.id = nextId;
   orders.push(order);
   nextId += 1;
 

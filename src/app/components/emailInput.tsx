@@ -9,15 +9,20 @@ const EmailInput: React.FC = () => {
   const [isValid, setIsValid] = useState(true);
 
   const validateEmail = (email: string) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(email);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newEmail = event.target.value;
+
     setEmail(newEmail);
     setIsValid(validateEmail(newEmail));
-    localStorage.setItem('email', JSON.stringify(newEmail));
+    
+    const isValidEmail = validateEmail(newEmail);
+    if (isValidEmail) {
+      localStorage.setItem('email', JSON.stringify(newEmail));
+    }
   };
 
   return (
