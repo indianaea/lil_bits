@@ -54,7 +54,7 @@ const OrderReceipt: React.FC = () => {
   return (
     <>
       <div className="receipt-container">
-        <h1>Order {newOrder.id} summary</h1>
+        <h1>Order summary</h1>
         <div className="order-details">
           <p><strong>Email:</strong> {newOrder.email}</p>
           <p><strong>Date:</strong> {new Date(newOrder.orderDate).toLocaleDateString()}</p>
@@ -67,7 +67,7 @@ const OrderReceipt: React.FC = () => {
           <p><strong>Category:</strong> {newOrder.dish.category}</p>
           <p><strong>Cousine:</strong> {newOrder.dish.cousine}</p>
           <p><strong>Description:</strong> {newOrder.dish.description}</p>
-          <p><strong>Price:</strong> {newOrder.dish.price.toFixed(2)}</p>
+          <p><strong>Price:</strong> {newOrder.dish.price.toFixed(0)}</p>
         </div>
         <div className="order-details">
           <h2>Drinks</h2>

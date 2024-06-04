@@ -62,9 +62,10 @@ const TotalOrder: React.FC = () => {
       newOrder.time = getLocalStorageString("selectedTime", "");
 
       const response = await orderApi.postOrder(newOrder);
+      
+     alert(`Get order via email: ${JSON.stringify(response)}`);
 
       const getOrder = await orderApi.getOrder(newOrder.email);
-      //alert(`Get order via email: ${JSON.stringify(getOrder)}`);
 
     } catch (err) {
       console.error('Error posting order:', err);
