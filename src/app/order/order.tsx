@@ -83,8 +83,10 @@ const Orders = () => {
                 <p className="DishPrice">Price: {dish.price} kr</p>
               </div>
               <div className="ButtonContainer">
-                <button className="GetRandomDishButton" onClick={getDish}>Get Random Dish</button>
-                <button className="GoToDrinkPageButton" onClick={confirmSelection}>Go To Drink Page</button>
+                <button className="GetRandomDishButton" onClick={getDish}>Get random dish</button>
+                <button className="GoToDrinkPageButton" onClick={confirmSelection}>Selects drinks
+                <img src="arrow.svg" alt="Arrow" className="arrow-icon"/>
+                </button>
               </div>
             </div>
           </div>

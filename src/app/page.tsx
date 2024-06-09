@@ -1,9 +1,9 @@
 "use client";
 
 import Layout from './components/layout';
-import HeroSlider from "./components/heroSlider"; // Adjust the path as necessary
-import Button from "./components/button"; // Adjust the path as necessary
-import FindOrder from "./components/findOrder"; // Adjust the path as necessary
+import HeroSlider from "./components/heroSlider";
+import Button from "./components/button";
+import FindOrder from "./components/findOrder";
 import './page.css';
 
 const nextPage = async () => {
@@ -16,7 +16,7 @@ const FrontPage = () => {
       <div className="HeroSection">
         <div className="HeroText">
           <h1>Welcome to Our Service</h1>
-          <p className="HeroSubText">Your reliable partner for all your needs</p> {/* New text added here */}
+          <p className="HeroSubText">Your reliable partner for all your needs</p>
           <Button onClick={nextPage} caption="Order" />
         </div>
         <HeroSlider />

@@ -1,36 +1,36 @@
 .HeroSection {
   display: flex;
-  align-items: center; /* Center items vertically */
+  align-items: center;
   padding: 20px;
-  justify-content: space-between; /* Distribute space between items */
-  margin-bottom: 40px; /* Ensure some space below the hero section */
+  justify-content: space-between;
+  margin-bottom: 40px;
 }
 
 .HeroText {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
-  margin-right: 40px; /* Space between text and slider */
+  align-items: flex-start;
+  margin-right: 40px;
   flex: 1;
   font: "Poppins", sans-serif;
 }
 
 .HeroText h1 {
-  font-size: 3rem; /* Increase the font size */
-  margin-bottom: 10px; /* Adjust space between h1 and the new text */
+  font-size: 3rem;
+  margin-bottom: 10px;
   font: "Poppins", sans-serif;
 }
 
 .HeroText .HeroSubText {
-  font-size: 1.5rem; /* Set the font size for the smaller text */
-  margin-bottom: 20px; /* Space between the smaller text and the button */
-  color: #666; /* Optionally change the color */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #666;
   font: "Poppins", sans-serif;
 }
 
 .button {
-  padding: 10px 30px; /* Make the button bigger */
-  font-size: 20px; /* Increase font size */
+  padding: 10px 30px;
+  font-size: 20px;
   background-color: #3e5f54;
   color: white;
   border: none;
@@ -48,39 +48,31 @@
   color: white;
 }
 
-/* Responsive adjustments */
+/* Mobile */
 @media (max-width: 768px) {
   .HeroSection {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
   }
 
   .HeroText {
-    align-items: center; /* Center text and button horizontally */
-    margin-right: 0; /* Remove right margin */
-    margin-bottom: 20px; /* Add bottom margin to separate from slider */
+    align-items: center;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 
   .HeroText h1 {
-    font-size: 2rem; /* Adjust font size for smaller screens */
-    text-align: center; /* Center text */
+    font-size: 2rem;
+    text-align: center;
   }
 
   .HeroText .HeroSubText {
-    font-size: 1rem; /* Adjust font size for smaller screens */
-    text-align: center; /* Center text */
+    font-size: 1rem;
+    text-align: center;
   }
 
   .button {
-    width: 100%; /* Make the button full width */
-    text-align: center; /* Center text */
+    width: 100%;
+    text-align: center;
   }
-}
-
-.FindOrderSection {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 0; /* Add padding for space around the FindOrder component */
 }

@@ -51,7 +51,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: flex-end;
-  display: flex; /* Use flex to align items */
+  display: flex;
   align-items: center;
 }
 
@@ -61,7 +61,79 @@
 }
 
 .arrow-icon {
-  width: 20px; /* Adjust size as needed */
+  width: 20px;
   height: auto;
-  margin-left: 10px; /* Space between text and icon */
+  margin-left: 10px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .find-order-container {
+    width: 100%;
+    padding: 10px;
+    border-width: 5px;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .email-label {
+    font-size: 14px;
+  }
+
+  .email-input {
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .find-button {
+    padding: 8px 20px;
+    font-size: 18px;
+    border-radius: 24px;
+  }
+
+  .arrow-icon {
+    width: 16px;
+    margin-left: 8px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .find-order-container {
+    width: 770px;
+    padding: 15px;
+    border-width: 8px;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .email-label {
+    font-size: 15px;
+  }
+
+  .email-input {
+    padding: 9px;
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+
+  .find-button {
+    padding: 9px 25px;
+    font-size: 19px;
+    border-radius: 28px;
+  }
+
+  .arrow-icon {
+    width: 18px;
+    margin-left: 9px;
+  }
 }
