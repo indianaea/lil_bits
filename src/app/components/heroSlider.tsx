@@ -27,13 +27,13 @@ const HeroSlider = () => {
                     swipeScrollTolerance={5}
                     ariaLabel="Hero Slider"
                 >
-                    <div>
-                        <img src="lilbits.png" alt="Slide 1" />
+                    <div className="image-container">
+                        <img src="spices.jpg" alt="Slide 1" />
                     </div>
-                    <div>
+                    <div className="image-container">
                         <img src="lilbits.png" alt="Slide 2" />
                     </div>
-                    <div>
+                    <div className="image-container">
                         <img src="lilbits.png" alt="Slide 3" />
                     </div>
                 </Carousel>

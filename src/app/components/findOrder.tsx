@@ -17,7 +17,6 @@ const FindOrder = () => {
     if (order.email == JSON.stringify(email)) {
       localStorage.setItem('savedOrder', JSON.stringify(order)); 
       window.location.href = "/order";
-      //alert(`Found order: ${order.email}`);
     } else {
       alert(`No order found: ${order.email}`);
     }    
@@ -33,7 +32,7 @@ const FindOrder = () => {
         className="email-input"
         value={email}
         onChange={handleInputChange}
-        placeholder="Enter email"
+        placeholder="Enter your email"
       />
       <button className="find-button" onClick={handleFindOrder}>Find</button>
     </div>
