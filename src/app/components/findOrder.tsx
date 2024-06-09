@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { orderApi } from "../api/orderApi";
 import './findOrder.css';
 
 const FindOrder = () => {
@@ -10,8 +11,16 @@ const FindOrder = () => {
     setEmail(e.target.value);
   };
 
-  const handleFindOrder = () => {
-    alert(`Finding order for email: ${email}`);
+  const handleFindOrder = async () => {
+    const order = await orderApi.getOrder(JSON.stringify(email));
+
+    if (order.email == JSON.stringify(email)) {
+      localStorage.setItem('savedOrder', JSON.stringify(order)); 
+      window.location.href = "/order";
+      //alert(`Found order: ${order.email}`);
+    } else {
+      alert(`No order found: ${order.email}`);
+    }    
   };
 
   return (

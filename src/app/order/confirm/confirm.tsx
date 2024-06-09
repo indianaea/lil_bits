@@ -63,7 +63,7 @@ const TotalOrder: React.FC = () => {
 
       const response = await orderApi.postOrder(newOrder);
       
-     alert(`Get order via email: ${JSON.stringify(response)}`);
+      alert(`Get order via email: ${JSON.stringify(response)}`);
 
       const getOrder = await orderApi.getOrder(newOrder.email);
 
