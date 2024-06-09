@@ -11,8 +11,8 @@
 }
 
 .title {
-  font-size: 18px;
-  font: "Poppins", sans-serif;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
   color: #cf6757;
   margin-bottom: 10px;
 }
@@ -21,8 +21,8 @@
   display: block;
   margin-bottom: 5px;
   color: #cf6757;
-  font-size: 14px;
-  font: "Poppins", sans-serif;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
 }
 
 .email-input {
@@ -32,7 +32,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
-  font: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   color: #333;
 }
@@ -40,20 +40,28 @@
 .find-button {
   padding: 10px 30px;
   font-size: 20px;
-  background-color: #3e5f54;
+  background-color: #cf6757;
   color: white;
   border: none;
   border-radius: 32px;
   text-align: center;
   text-decoration: none;
-  font: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: flex-end;
+  display: flex; /* Use flex to align items */
+  align-items: center;
 }
 
 .find-button:hover {
-  background-color: #cf6757;
+  background-color: #3e5f54;
   color: white;
+}
+
+.arrow-icon {
+  width: 20px; /* Adjust size as needed */
+  height: auto;
+  margin-left: 10px; /* Space between text and icon */
 }

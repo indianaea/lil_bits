@@ -24,8 +24,8 @@ const FindOrder = () => {
 
   return (
     <div className="find-order-container">
-      <h2 className="title">Find your order!</h2>
-      <label className="email-label" htmlFor="email">Enter your email</label>
+      <h2 className="title">Find your order</h2>
+      <label className="email-label" htmlFor="email">With your email you can find your order, change it and update it!</label>
       <input
         type="email"
         id="email"
@@ -34,7 +34,10 @@ const FindOrder = () => {
         onChange={handleInputChange}
         placeholder="Enter your email"
       />
-      <button className="find-button" onClick={handleFindOrder}>Find</button>
+      <button className="find-button" onClick={handleFindOrder}>
+        Find
+        <img src="arrow.svg" alt="Arrow" className="arrow-icon" />
+      </button>
     </div>
   );
 };
