@@ -17,7 +17,14 @@
 
 .HeroText h1 {
   font-size: 3rem; /* Increase the font size */
-  margin-bottom: 20px; /* Add space between h1 and button */
+  margin-bottom: 10px; /* Adjust space between h1 and the new text */
+  font: "Poppins", sans-serif;
+}
+
+.HeroText .HeroSubText {
+  font-size: 1.5rem; /* Set the font size for the smaller text */
+  margin-bottom: 20px; /* Space between the smaller text and the button */
+  color: #666; /* Optionally change the color */
   font: "Poppins", sans-serif;
 }
 
@@ -25,7 +32,7 @@
   padding: 10px 30px; /* Make the button bigger */
   font-size: 20px; /* Increase font size */
   background-color: #3e5f54;
-  color: #cf6757;
+  color: white;
   border: none;
   border-radius: 32px;
   text-align: center;
@@ -38,7 +45,7 @@
 
 .button:hover {
   background-color: #cf6757;
-  color: #3e5f54;
+  color: white;
 }
 
 /* Responsive adjustments */
@@ -56,6 +63,11 @@
 
   .HeroText h1 {
     font-size: 2rem; /* Adjust font size for smaller screens */
+    text-align: center; /* Center text */
+  }
+
+  .HeroText .HeroSubText {
+    font-size: 1rem; /* Adjust font size for smaller screens */
     text-align: center; /* Center text */
   }
 

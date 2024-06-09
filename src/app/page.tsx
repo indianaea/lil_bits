@@ -16,6 +16,7 @@ const FrontPage = () => {
       <div className="HeroSection">
         <div className="HeroText">
           <h1>Welcome to Our Service</h1>
+          <p className="HeroSubText">Your reliable partner for all your needs</p> {/* New text added here */}
           <Button onClick={nextPage} caption="Order" />
         </div>
         <HeroSlider />

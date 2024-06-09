@@ -1,16 +1,25 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./navbar.css"
 import Link from "next/link";
 
 
 export const NavbarMenu = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <div className="container">
             <Link href="/" className="logo">
                 <img src="/lilbits.png" alt="Website Logo" />
             </Link>
-            <ul className="desktopMenu">
+            <button className="menuBtn" onClick={toggleMenu}>
+                <img src="/hamburger-icon.svg" alt="Menu" className="icon" />
+            </button>
+            <ul className={`desktopMenu ${isOpen ? "mobileMenu" : ""}`}>
                 <li>
                     <Link href="/order">Order dish</Link>
                 </li>
@@ -30,9 +39,7 @@ export const NavbarMenu = () => {
 
 const Navbar = () => {
     return (
-        // <---1 Wrap this component with a context
         <div className="navbar">{<NavbarMenu />}</div>
-        // 1--->
     );
 };
 

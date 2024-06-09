@@ -37,39 +37,6 @@ const DrinkSelector: React.FC = () => {
     fetchDrinkList();
   }, []);
 
-  const getSavedOrder = () => {
-    const emptyDish: DishType = {
-      id: 0,
-      category: "",
-      cousine: "",
-      description: "",
-      imageSource: "",
-      name: "",
-      price: 0,
-    };
-
-    const emptyOrder: OrderType = {
-      id: 0,
-       email: "",
-       dish: emptyDish,
-       drinks: [],
-       count: 0,
-       time: "",
-       orderDate: new Date(),
-       totalAmount: 0,
-    };
-
-    const order = getLocalStorageItem<OrderType>("savedOrder", emptyOrder);      
-    return order;
-
-  };
-
-  const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) as T : defaultValue;
-  };
-
-
   const getRandomBorderClass = () => {
     const borderClasses = ["yellow-border", "green-border", "red-border"];
     return borderClasses[Math.floor(Math.random() * borderClasses.length)];
@@ -100,14 +67,18 @@ const DrinkSelector: React.FC = () => {
           <div
             key={drink.id}
             className={`drink ${selectedDrinks.some(d => d.id === drink.id) ? 'selected' : ''}`}
-            onClick={() => toggleDrinkSelection(drink.id)}
           >
-            <img src={drink.imageSource} alt={drink.name} className={getRandomBorderClass()} />
-            <p>{drink.name}</p>
-            <p>Price: {drink.price.toFixed(0)}</p>
-            {selectedDrinks.some(d => d.id === drink.id) && (
-              <span className="checkmark">✔️</span>
-            )}
+            <img src={drink.imageSource} alt={drink.name} />
+            <div style={{ paddingTop: '80px' }}> {/* Adjust padding for content below the image */}
+              <p>{drink.name}</p>
+              <p className="price">Price: {drink.price} kr</p>
+              <button
+                className={`button ${selectedDrinks.some(d => d.id === drink.id) ? 'selected' : ''}`}
+                onClick={() => toggleDrinkSelection(drink.id)}
+              >
+                Buy
+              </button>
+            </div>
           </div>
         ))}
       </div>
