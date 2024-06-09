@@ -36,11 +36,39 @@ const DrinkSelector: React.FC = () => {
 
     fetchDrinkList();
   }, []);
+  
+  const getSavedOrder = () => {
+    const emptyDish: DishType = {
+      id: 0,
+      category: "",
+      cousine: "",
+      description: "",
+      imageSource: "",
+      name: "",
+      price: 0,
+    };
 
-  const getRandomBorderClass = () => {
-    const borderClasses = ["yellow-border", "green-border", "red-border"];
-    return borderClasses[Math.floor(Math.random() * borderClasses.length)];
+    const emptyOrder: OrderType = {
+      id: 0,
+       email: "",
+       dish: emptyDish,
+       drinks: [],
+       count: 0,
+       time: "",
+       orderDate: new Date(),
+       totalAmount: 0,
+    };
+
+    const order = getLocalStorageItem<OrderType>("savedOrder", emptyOrder);      
+    return order;
+
   };
+
+  const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) as T : defaultValue;
+  };
+
 
   const toggleDrinkSelection = (id: number) => {
  

@@ -2,8 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { orderApi } from "../api/orderApi";
-import { DishType } from "../api/types";
-import Button from '../components/button';
+import { OrderType, DishType } from "../api/types";
 import "./order.css";
 
 const Orders = () => {
