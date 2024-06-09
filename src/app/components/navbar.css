@@ -32,11 +32,15 @@
 
 .menuBtn {
   display: none; /* Hidden on medium screens and up */
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .icon {
   width: 24px;
   height: 24px;
+  filter: brightness(0) invert(1); /* This will make the icon white */
 }
 
 .desktopMenu {
@@ -56,6 +60,22 @@
 
 .mobileMenu {
   display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 80px; /* Position below the navbar */
+  right: 16px;
+  background-color: #cf6757;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  max-width: 200px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.mobileMenu a {
+  display: block;
+  padding: 10px;
+  text-align: left;
 }
 
 @media (max-width: 768px) {
@@ -66,8 +86,7 @@
     display: none;
   }
   .mobileMenu {
-    display: block;
-    text-align: center;
+    display: flex;
   }
   .mobileMenu a {
     display: block;

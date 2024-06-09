@@ -12,6 +12,7 @@
   margin: 10px;
   border: 2px solid transparent;
   padding: 10px;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 .DishImage {
@@ -21,9 +22,22 @@
   border-radius: 18px;
 }
 
-.DishDetails {
+.DishDetailsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.RedSquare {
+  background-color: #ffe5d9; /* Red transparent background */
+  padding: 20px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+  height: 300px; /* Match the height of the photo */
+  box-sizing: border-box; /* Include padding in height calculation */
 }
 
 .DishName {
@@ -41,26 +55,37 @@
   gap: 10px; /* Space between buttons */
 }
 
-.GetRandomDishButton {
-  background-color: #e3e996;
-  color: #3e5f54;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px; /* Smaller width */
-}
-
-.GetRandomDishButton:hover {
-  background-color: #cf6757;
-}
-
+.GetRandomDishButton,
 .GoToDrinkPageButton {
-  background-color: #8ecae6;
-  color: #023047;
+  background-color: #cf6757;
+  color: white;
   border: none;
   border-radius: 5px;
   padding: 10px 20px; /* Smaller width */
+  cursor: pointer;
 }
 
+.GetRandomDishButton:hover,
 .GoToDrinkPageButton:hover {
-  background-color: #219ebc;
+  background-color: #3e5f54;
+  color: white;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .DishSelected {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    align-items: center;
+  }
+
+  .DishImage {
+    margin-right: 0;
+    margin-bottom: 20px; /* Space between image and red square on small screens */
+  }
+
+  .RedSquare {
+    width: 100%; /* Full width on small screens */
+    height: auto; /* Adjust height to content */
+    padding: 20px; /* Adjust padding */
+  }
 }

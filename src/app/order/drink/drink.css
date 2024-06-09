@@ -1,51 +1,99 @@
 .DrinksContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
   margin: 40px;
 }
 
 .drink {
   cursor: pointer;
   position: relative;
-  margin: 10px;
-  border: 2px solid transparent;
-  padding: 10px;
-  width: calc(
-    25% - 40px
-  ); /* Four drinks per row, adjusting for margins and padding */
+  margin: 20px;
+  padding: 20px;
+  width: calc(23% - 40px); /* Thinner boxes for four drinks per row */
   box-sizing: border-box;
-  text-align: center;
+  text-align: left; /* Align text to left */
+  background-color: #ffe5d9; /* Card background color */
+  border-radius: 10px; /* Rounded corners for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+  transition: transform 0.2s;
+  margin-bottom: 40px; /* Add margin between rows */
 }
 
-.drink.selected {
-  border-color: #3e6053;
+.drink:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .drink img {
-  width: 150px; /* Increased size */
-  height: 150px; /* Increased size */
-  border-radius: 50%; /* Rounded images */
-  border: 5px solid; /* Use solid border */
+  width: 120px; /* Adjusted size */
+  height: 120px; /* Adjusted size */
+  border-radius: 50%;
+  position: absolute;
+  top: -40px; /* Position image at the top */
+  right: -20px; /* Position image at the right */
+  border: 5px solid #cf6757; /* Always use red border */
 }
 
-.yellow-border {
-  border-color: yellow; /* Yellow solid border */
+.drink.selected img {
+  border-color: #3e5f54; /* Green border for selected items */
 }
 
-.green-border {
-  border-color: green; /* Green solid border */
+.drink p {
+  margin: 10px 0;
 }
 
-.red-border {
-  border-color: red; /* Red solid border */
+.drink .price {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.drink .button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #cf6757; /* Button background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.drink .button.selected {
+  background-color: #3e5f54; /* Green button for selected items */
+}
+
+.drink .button:hover {
+  background-color: #3e5f54; /* Darker button on hover */
+}
+
+.drink.selected .price {
+  color: #c16757; /* Color change for selected items */
+}
+
+.drink.selected .button {
+  background-color: #3e5f54; /* Button color change for selected items */
 }
 
 .checkmark {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 24px;
-  color: #c16757;
+  display: none; /* Hide the checkmark */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .drink {
+    width: calc(33.33% - 40px); /* Three drinks per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .drink {
+    width: calc(50% - 40px); /* Two drinks per row on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .drink {
+    width: calc(100% - 40px); /* One drink per row on extra small screens */
+  }
 }
