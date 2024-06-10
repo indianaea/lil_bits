@@ -62,13 +62,15 @@ const TotalOrder: React.FC = () => {
       newOrder.time = getLocalStorageString("selectedTime", "");
       newOrder.count = Number(localStorage.getItem('numberOfPeople')) || 0;
 
+      //alert(`Nýr fjoldi gesta sóttur ${newOrder.count}`);
+
       const amount = newOrder.dish.price + newOrder.drinks.reduce((total, drink) => total + drink.price, 0);
       newOrder.totalAmount = amount * newOrder.count;
 
       const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
-      newOrder.id = savedOrderId;
 
-      if (savedOrderId != 0) {
+      if (savedOrderId !== 0) {
+        newOrder.id = savedOrderId;
         await orderApi.updateOrder(newOrder);
       } else {
         await orderApi.postOrder(newOrder);

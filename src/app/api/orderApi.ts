@@ -58,7 +58,7 @@ const postOrder = async (order: OrderType): Promise<OrderType> => {
 
 const updateOrder = async (order: OrderType): Promise<OrderType> => {
   const res = await fetch(`http://localhost:3001/api/update-order`, {
-    method: 'POST',
+    method: 'PUT',
     body: JSON.stringify(order),
     headers: {
       'Content-Type': 'application/json'

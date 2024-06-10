@@ -14,14 +14,11 @@ const Orders = () => {
     
     if (savedOrderId !== 0) {
       const savedEmail = getLocalStorageString('savedOrderEmail', "");
-      //console.log(`Getting order from api: ${savedOrderId}`);
-
       const savedOrder = await orderApi.getOrder(savedEmail);
+
       setDish(savedOrder.dish);
       setSelectedDish(savedOrder.dish);
     } else {
-      //console.log(`Getting random dish`);
-
       const randomDish = await orderApi.getRandomDish();
       setDish(randomDish);
       setSelectedDish(randomDish);

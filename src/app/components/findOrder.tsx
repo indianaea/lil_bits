@@ -13,6 +13,7 @@ const FindOrder = () => {
 
   const handleFindOrder = async () => {
     try {
+      localStorage.clear();
       localStorage.setItem('savedOrderEmail', email);
       const savedOrder = await orderApi.getOrder(email);
       localStorage.setItem('savedOrderId', String(savedOrder.id));    
