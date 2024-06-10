@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
 :root {
   /* Define global colors */
   --primary-color: #e3e996;
@@ -18,4 +20,13 @@
   yellow: #e3e996;
   green: #3e5f54;
   red: #cf6757;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient(45deg, #f1f7d3, #e3e996, #c1d277) !important;
+  font-family: "Poppins", sans-serif;
 }
