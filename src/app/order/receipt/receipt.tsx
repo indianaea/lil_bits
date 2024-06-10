@@ -66,7 +66,7 @@ const OrderReceipt: React.FC = () => {
           <p><strong>Name:</strong> {newOrder.dish.name}</p>
           <p><strong>Cousine:</strong> {newOrder.dish.cousine}</p>
           <p><strong>Description:</strong> {newOrder.dish.description}</p>
-          <p><strong>Price:</strong> {newOrder.dish.price.toFixed(0)}</p>
+          <p><strong>Price:</strong> {newOrder.dish.price.toFixed(0)} kr</p>
         </div>
         <div className="order-details">
           <h2>Drinks</h2>
@@ -76,7 +76,7 @@ const OrderReceipt: React.FC = () => {
             newOrder.drinks.map(drink => (
               <div key={drink.id} className="drink-item">
                 <p><strong>Name:</strong> {drink.name}</p>
-                <p><strong>Price:</strong> {drink.price.toFixed(0)}</p>
+                <p><strong>Price:</strong> {drink.price.toFixed(0)} kr</p>
               </div>
             ))
           )}
