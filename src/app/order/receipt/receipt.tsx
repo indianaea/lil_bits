@@ -64,7 +64,6 @@ const OrderReceipt: React.FC = () => {
         <div className="order-details">
           <h2>Dish</h2>
           <p><strong>Name:</strong> {newOrder.dish.name}</p>
-          <p><strong>Category:</strong> {newOrder.dish.category}</p>
           <p><strong>Cousine:</strong> {newOrder.dish.cousine}</p>
           <p><strong>Description:</strong> {newOrder.dish.description}</p>
           <p><strong>Price:</strong> {newOrder.dish.price.toFixed(0)}</p>
@@ -84,7 +83,7 @@ const OrderReceipt: React.FC = () => {
         </div>
         <div className="order-summary">
           <h2>Total Amount</h2>
-          <p><strong>{newOrder.totalAmount.toFixed(2)}</strong></p>
+          <p><strong>{newOrder.totalAmount.toFixed(0)} kr</strong></p>
         </div>
       </div>
       <Button onClick={homePage} caption="Back to home page"/>
