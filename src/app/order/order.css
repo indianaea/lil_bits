@@ -42,13 +42,18 @@
 }
 
 .DishName {
-  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
   margin: 5px 0;
 }
 
 .DishDescription,
 .DishPrice {
-  margin: 5px 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  margin: 10px 0;
 }
 
 .ButtonContainer {
