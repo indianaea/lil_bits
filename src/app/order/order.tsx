@@ -14,7 +14,7 @@ const Orders = () => {
     const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
     //console.log(`Order window, orderid : ${savedOrderId}`)
 
-    if (savedOrderId != 0) {
+    if (savedOrderId !== 0) {
       const savedEmail = getLocalStorageString('savedOrderEmail', "");
       //console.log(`Getting email from local storage: ${savedEmail}`);
 

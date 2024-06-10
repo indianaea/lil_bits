@@ -9,7 +9,7 @@ const PeoplePicker: React.FC = () => {
   useEffect(() => {
     const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
     
-    if (savedOrderId != 0) {
+    if (savedOrderId !== 0) {
       const count = Number(localStorage.getItem('numberOfPeople'));
       setNumberOfPeople(count);
     }

@@ -24,7 +24,7 @@ const DrinkSelector: React.FC = () => {
         
         setDrinks(normalizedDrinks);
 
-        if (savedOrderId != 0) {
+        if (savedOrderId !== 0) {
           const savedEmail = getLocalStorageString('savedOrderEmail', "");
           const savedOrder = await orderApi.getOrder(savedEmail);
           

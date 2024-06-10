@@ -17,13 +17,9 @@ const FindOrder = () => {
       const savedOrder = await orderApi.getOrder(email);
       localStorage.setItem('savedOrderId', String(savedOrder.id));    
       localStorage.setItem('selectedDate', String(savedOrder.orderDate));
-      //console.log(`savedOrder.date : ${savedOrder.orderDate}`)
       localStorage.setItem('selectedTime', String(savedOrder.time));
-      //console.log(`savedOrder.time : ${savedOrder.time}`)
       localStorage.setItem('numberOfPeople', String(savedOrder.count));
-      //console.log(`savedOrder.count : ${savedOrder.count}`)
       localStorage.setItem('savedTotalAmount', String(savedOrder.totalAmount));
-      //console.log(`savedOrder.totalAmount : ${savedOrder.totalAmount}`)
 
       window.location.href = "/order";    
     } catch (error) {

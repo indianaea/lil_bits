@@ -16,7 +16,7 @@ const EmailInput: React.FC = () => {
   useEffect(() => {
     const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
 
-    if (savedOrderId != 0) {
+    if (savedOrderId !== 0) {
       const savedEmail = getLocalStorageString('savedOrderEmail', "");
       setEmail(savedEmail);
     }
