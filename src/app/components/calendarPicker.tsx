@@ -1,14 +1,13 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from 'react';
-import { format, isWeekend, getDay, startOfMonth, endOfMonth, addMonths, subMonths } from 'date-fns';
+import { format, getDay, startOfMonth, endOfMonth, addMonths, subMonths, isBefore, isEqual } from 'date-fns';
 import './calendarPicker.css';
 
 const CalendarPicker: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('16:00');
   const [currentMonth, setCurrentMonth] = useState(new Date());
-
 
   useEffect(() => {
     const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
@@ -25,7 +24,8 @@ const CalendarPicker: React.FC = () => {
   };
 
   const handleDayClick = (date: Date) => {
-    if (getDay(date) !== 6 && getDay(date) !== 5) { // Ensure the clicked date is not Saturday (6) or Sunday (0)
+    const today = new Date();
+    if (getDay(date) !== 0 && getDay(date) !== 6 && !isBefore(date, today)) {
       setSelectedDate(date);
       localStorage.setItem('selectedDate', date.toISOString());
     }
@@ -33,9 +33,8 @@ const CalendarPicker: React.FC = () => {
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedTime = event.target.value; 
-    const time = JSON.stringify(selectedTime).replace(/"/g, '');
-    setSelectedTime(time);
-    localStorage.setItem('selectedTime', time);
+    setSelectedTime(selectedTime);
+    localStorage.setItem('selectedTime', selectedTime);
   };
 
   const renderDays = () => {
@@ -52,12 +51,14 @@ const CalendarPicker: React.FC = () => {
 
     for (let i = startDate; i <= endDate; i++) {
       const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), i);
+      const today = new Date();
+      const isPast = isBefore(date, today) && !isEqual(date, today);
       days.push(
         <div
           key={i}
-          className={`day ${getDay(date) === 6 || getDay(date) === 5 ? 'weekend' : ''} ${date.toDateString() === selectedDate.toDateString() ? 'selected' : ''}`}
+          className={`day ${getDay(date) === 0 || getDay(date) === 6 ? 'weekend' : ''} ${date.toDateString() === selectedDate.toDateString() ? 'selected' : ''} ${isPast ? 'past' : ''}`}
           onClick={() => handleDayClick(date)}
-          style={{ pointerEvents: getDay(date) === 6 || getDay(date) === 5 ? 'none' : 'auto', opacity: getDay(date) === 6 || getDay(date) === 5 ? 0.5 : 1 }}
+          style={{ pointerEvents: getDay(date) === 0 || getDay(date) === 6 || isPast ? 'none' : 'auto', opacity: getDay(date) === 0 || getDay(date) === 6 || isPast ? 0.5 : 1 }}
         >
           {i}
         </div>
@@ -76,7 +77,7 @@ const CalendarPicker: React.FC = () => {
           <button onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>→</button>
         </div>
         <div className="weekdays">
-          {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
+          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
             <div key={day} className="weekday">{day}</div>
           ))}
         </div>
