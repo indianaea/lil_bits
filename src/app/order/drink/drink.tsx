@@ -14,7 +14,6 @@ const DrinkSelector: React.FC = () => {
     const fetchDrinkList = async () => {
       try {
         const fetchedDrinks: DrinkType[] = await coctailApi.getDrinks();
-
         const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
         //console.log(`Drink window, orderid : ${savedOrderId}`)
 

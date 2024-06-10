@@ -9,6 +9,7 @@ import "./confirm.css";
 const TotalOrder: React.FC = () => {
   const [newOrder, setNewOrder] = useState<OrderType | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [buttonCaption, setButtonCaption] = useState<string>("Confirm order");
 
   useEffect(() => {
     const emptyDish: DishType = {
@@ -22,9 +23,7 @@ const TotalOrder: React.FC = () => {
     };
 
     const selectedDish = getLocalStorageItem<DishType>("selectedDish", emptyDish);
-    //alert(`Diskur : ${JSON.stringify(selectedDish)}`);
     const selectedDrinks = getLocalStorageItem<DrinkType[]>("selectedDrinks", []);
-    //alert(`Drykkir : ${JSON.stringify(selectedDrinks)}`);
 
     let newOrder: OrderType = {
       id: 0,
@@ -39,6 +38,11 @@ const TotalOrder: React.FC = () => {
 
     setNewOrder(newOrder);
     setIsLoading(false);
+
+    const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
+    if (savedOrderId !== 0) {
+      setButtonCaption("Update order");
+    }
   }, []);
 
   const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
@@ -56,22 +60,18 @@ const TotalOrder: React.FC = () => {
       newOrder.email = getLocalStorageString("savedOrderEmail", "");
       newOrder.orderDate = new Date(getLocalStorageString("selectedDate", new Date().toISOString()));
       newOrder.time = getLocalStorageString("selectedTime", "");
-      newOrder.count = getLocalStorageItem<number>("numberOfPeople", 0);
+      newOrder.count = Number(localStorage.getItem('numberOfPeople')) || 0;
 
       const amount = newOrder.dish.price + newOrder.drinks.reduce((total, drink) => total + drink.price, 0);
-
       newOrder.totalAmount = amount * newOrder.count;
 
       const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
       newOrder.id = savedOrderId;
 
-      if(savedOrderId != 0){
-        alert(`Uppfæri pöntun : ${JSON.stringify(newOrder)}`);
-        const response = await orderApi.updateOrder(newOrder);
-      }
-      else {
-        alert(`Vista nýja pöntun : ${JSON.stringify(newOrder)}`);
-        const response = await orderApi.postOrder(newOrder);
+      if (savedOrderId != 0) {
+        await orderApi.updateOrder(newOrder);
+      } else {
+        await orderApi.postOrder(newOrder);
       }
 
     } catch (err) {
@@ -87,7 +87,7 @@ const TotalOrder: React.FC = () => {
 
   return (
     <>
-      <Button onClick={confirmOrder} caption="Confirm order"/>
+      <Button onClick={confirmOrder} caption={buttonCaption}/>
     </>
   );
 };
