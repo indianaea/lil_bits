@@ -56,10 +56,27 @@ const postOrder = async (order: OrderType): Promise<OrderType> => {
   return response
 }
 
+const updateOrder = async (order: OrderType): Promise<OrderType> => {
+  const res = await fetch(`http://localhost:3001/api/update-order`, {
+    method: 'POST',
+    body: JSON.stringify(order),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+
+  if (!res.ok) {
+    throw new Error('Failed to update order')
+  }
+
+  const response = await res.json() as OrderType
+  return response
+}
 
 export const orderApi = {
   getOrders,
   getOrder,
   postOrder,
-  getRandomDish
+  getRandomDish, 
+  updateOrder
 };

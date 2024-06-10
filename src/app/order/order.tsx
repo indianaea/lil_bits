@@ -2,20 +2,25 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { orderApi } from "../api/orderApi";
-import { OrderType, DishType } from "../api/types";
+import { DishType } from "../api/types";
 import "./order.css";
 
 const Orders = () => {
   const [dish, setDish] = useState<DishType | undefined>(undefined);
   const [selectedDish, setSelectedDish] = useState<DishType | undefined>(undefined);
 
-  const getDish = useCallback(async () => {
-    const savedOrder = getSavedOrder();       
+  const getDish = useCallback(async () => {       
     
-    if (savedOrder.email) {
+    const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
+    //console.log(`Order window, orderid : ${savedOrderId}`)
+
+    if (savedOrderId != 0) {
+      const savedEmail = getLocalStorageString('savedOrderEmail', "");
+      //console.log(`Getting email from local storage: ${savedEmail}`);
+
+      const savedOrder = await orderApi.getOrder(savedEmail);
       setDish(savedOrder.dish);
       setSelectedDish(savedOrder.dish);
-      //alert(`Dish set for: ${savedOrder.email}`);
     } else {
       const randomDish = await orderApi.getRandomDish();
       setDish(randomDish);
@@ -32,36 +37,8 @@ const Orders = () => {
     getDish();
   }, [getDish]);
 
-
-  const getSavedOrder = () => {
-    const emptyDish: DishType = {
-      id: 0,
-      category: "",
-      cousine: "",
-      description: "",
-      imageSource: "",
-      name: "",
-      price: 0,
-    };
-
-    const emptyOrder: OrderType = {
-      id: 0,
-       email: "",
-       dish: emptyDish,
-       drinks: [],
-       count: 0,
-       time: "",
-       orderDate: new Date(),
-       totalAmount: 0,
-    };
-
-    const order = getLocalStorageItem<OrderType>("savedOrder", emptyOrder);      
-    return order;
-  };
-
-  const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) as T : defaultValue;
+  const getLocalStorageString = (key: string, defaultValue: string): string => {
+    return localStorage.getItem(key) || defaultValue;
   };
 
   const confirmSelection = () => {

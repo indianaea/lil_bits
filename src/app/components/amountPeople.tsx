@@ -1,14 +1,24 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './amountPeople.css';
 
 const PeoplePicker: React.FC = () => {
   const [numberOfPeople, setNumberOfPeople] = useState(1);
 
+  useEffect(() => {
+    const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
+    
+    if (savedOrderId != 0) {
+      const count = Number(localStorage.getItem('numberOfPeople'));
+      setNumberOfPeople(count);
+    }
+  }, []);
+
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setNumberOfPeople(Number(event.target.value));
-    localStorage.setItem('numberOfPeople', JSON.stringify(event.target.value));
+    const numberOfPeople = Number(event.target.value);
+    setNumberOfPeople(numberOfPeople);
+    localStorage.setItem('numberOfPeople', numberOfPeople.toString()); 
   };
 
   return (

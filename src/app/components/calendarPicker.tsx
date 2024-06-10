@@ -9,6 +9,21 @@ const CalendarPicker: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState('16:00');
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
+
+  useEffect(() => {
+    const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
+    if (savedOrderId != 0) {
+      const date = new Date(getLocalStorageString("selectedDate", new Date().toISOString()));
+      const time = getLocalStorageString("selectedTime", "");
+      setSelectedDate(date);
+      setSelectedTime(time.replace(/"/g, ''));
+    }
+  }, []);  
+
+  const getLocalStorageString = (key: string, defaultValue: string): string => {
+    return localStorage.getItem(key) || defaultValue;
+  };
+
   const handleDayClick = (date: Date) => {
     if (getDay(date) !== 6 && getDay(date) !== 5) { // Ensure the clicked date is not Saturday (6) or Sunday (0)
       setSelectedDate(date);
@@ -18,8 +33,9 @@ const CalendarPicker: React.FC = () => {
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedTime = event.target.value; 
-    setSelectedTime(selectedTime);
-    localStorage.setItem('selectedTime', JSON.stringify(selectedTime));
+    const time = JSON.stringify(selectedTime).replace(/"/g, '');
+    setSelectedTime(time);
+    localStorage.setItem('selectedTime', time);
   };
 
   const renderDays = () => {

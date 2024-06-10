@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { coctailApi } from "../../api/coctailApi";
-import { OrderType, DishType, DrinkType } from "../../api/types";
+import { coctailApi} from "../../api/coctailApi";
+import { orderApi } from "../../api/orderApi";
+import { DrinkType } from "../../api/types";
 import './drink.css';
 import Button from '../../components/button';
 
@@ -13,7 +14,9 @@ const DrinkSelector: React.FC = () => {
     const fetchDrinkList = async () => {
       try {
         const fetchedDrinks: DrinkType[] = await coctailApi.getDrinks();
-        const savedOrder = getSavedOrder();       
+
+        const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
+        //console.log(`Drink window, orderid : ${savedOrderId}`)
 
         const normalizedDrinks = fetchedDrinks.map(drink => ({
           ...drink,
@@ -22,11 +25,15 @@ const DrinkSelector: React.FC = () => {
         
         setDrinks(normalizedDrinks);
 
-        if (savedOrder.email) {
+        if (savedOrderId != 0) {
+          const savedEmail = getLocalStorageString('savedOrderEmail', "");
+          const savedOrder = await orderApi.getOrder(savedEmail);
+          
           const preSelectedDrinks = normalizedDrinks.filter(drink =>
             savedOrder.drinks.some(savedDrink => savedDrink.id === drink.id)
           );
           setSelectedDrinks(preSelectedDrinks);
+          localStorage.setItem('selectedDrinks', JSON.stringify(preSelectedDrinks));
         }
         
       } catch (error) {
@@ -36,38 +43,6 @@ const DrinkSelector: React.FC = () => {
 
     fetchDrinkList();
   }, []);
-  
-  const getSavedOrder = () => {
-    const emptyDish: DishType = {
-      id: 0,
-      category: "",
-      cousine: "",
-      description: "",
-      imageSource: "",
-      name: "",
-      price: 0,
-    };
-
-    const emptyOrder: OrderType = {
-      id: 0,
-       email: "",
-       dish: emptyDish,
-       drinks: [],
-       count: 0,
-       time: "",
-       orderDate: new Date(),
-       totalAmount: 0,
-    };
-
-    const order = getLocalStorageItem<OrderType>("savedOrder", emptyOrder);      
-    return order;
-
-  };
-
-  const getLocalStorageItem = <T,>(key: string, defaultValue: T): T => {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) as T : defaultValue;
-  };
 
 
   const toggleDrinkSelection = (id: number) => {
@@ -82,6 +57,10 @@ const DrinkSelector: React.FC = () => {
       localStorage.setItem('selectedDrinks', JSON.stringify(newSelected));
       return newSelected;
     });
+  };
+
+  const getLocalStorageString = (key: string, defaultValue: string): string => {
+    return localStorage.getItem(key) || defaultValue;
   };
 
   const confirmSelection = () => {

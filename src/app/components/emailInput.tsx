@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './emailInput.css';
 import classNames from 'classnames';
 
@@ -13,6 +13,15 @@ const EmailInput: React.FC = () => {
     return regex.test(email);
   };
 
+  useEffect(() => {
+    const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
+
+    if (savedOrderId != 0) {
+      const savedEmail = getLocalStorageString('savedOrderEmail', "");
+      setEmail(savedEmail);
+    }
+  }, []);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newEmail = event.target.value;
 
@@ -21,8 +30,13 @@ const EmailInput: React.FC = () => {
     
     const isValidEmail = validateEmail(newEmail);
     if (isValidEmail) {
-      localStorage.setItem('email', JSON.stringify(newEmail));
+      const email = JSON.stringify(newEmail).replace(/"/g, '');
+      localStorage.setItem('savedOrderEmail', email);
     }
+  };
+
+  const getLocalStorageString = (key: string, defaultValue: string): string => {
+    return localStorage.getItem(key) || defaultValue;
   };
 
   return (

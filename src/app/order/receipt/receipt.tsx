@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { OrderType, DishType} from "../../api/types";
+import { orderApi } from "../../api/orderApi";
 import "./receipt.css";
 import Button from '../../components/button';
 
@@ -44,6 +45,7 @@ const OrderReceipt: React.FC = () => {
   }, []);
 
   const homePage = async () => {
+    localStorage.clear();
     window.location.href = "/";
   };
 

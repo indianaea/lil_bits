@@ -22,12 +22,9 @@ const TotalOrder: React.FC = () => {
     };
 
     const selectedDish = getLocalStorageItem<DishType>("selectedDish", emptyDish);
+    //alert(`Diskur : ${JSON.stringify(selectedDish)}`);
     const selectedDrinks = getLocalStorageItem<DrinkType[]>("selectedDrinks", []);
-    const count = getLocalStorageItem<number>("numberOfPeople", 0);
-
-    const calculateTotalPrice = (): number => {
-      return selectedDish.price + selectedDrinks.reduce((total, drink) => total + drink.price, 0);
-    };
+    //alert(`Drykkir : ${JSON.stringify(selectedDrinks)}`);
 
     let newOrder: OrderType = {
       id: 0,
@@ -35,8 +32,8 @@ const TotalOrder: React.FC = () => {
       dish: selectedDish,
       drinks: selectedDrinks,
       email: "",
-      totalAmount: calculateTotalPrice() * count,
-      count: count,
+      totalAmount: 0,
+      count: 0,
       time: ""
     };
 
@@ -53,19 +50,29 @@ const TotalOrder: React.FC = () => {
     return localStorage.getItem(key) || defaultValue;
   };
 
-
   const confirmOrder = async () => {
     if (!newOrder) return;
     try {newOrder
-      newOrder.email = getLocalStorageString("email", "");
+      newOrder.email = getLocalStorageString("savedOrderEmail", "");
       newOrder.orderDate = new Date(getLocalStorageString("selectedDate", new Date().toISOString()));
       newOrder.time = getLocalStorageString("selectedTime", "");
+      newOrder.count = getLocalStorageItem<number>("numberOfPeople", 0);
 
-      const response = await orderApi.postOrder(newOrder);
-      
-      alert(`Get order via email: ${JSON.stringify(response)}`);
+      const amount = newOrder.dish.price + newOrder.drinks.reduce((total, drink) => total + drink.price, 0);
 
-      const getOrder = await orderApi.getOrder(newOrder.email);
+      newOrder.totalAmount = amount * newOrder.count;
+
+      const savedOrderId = Number(localStorage.getItem('savedOrderId')) || 0;
+      newOrder.id = savedOrderId;
+
+      if(savedOrderId != 0){
+        alert(`Uppfæri pöntun : ${JSON.stringify(newOrder)}`);
+        const response = await orderApi.updateOrder(newOrder);
+      }
+      else {
+        alert(`Vista nýja pöntun : ${JSON.stringify(newOrder)}`);
+        const response = await orderApi.postOrder(newOrder);
+      }
 
     } catch (err) {
       console.error('Error posting order:', err);

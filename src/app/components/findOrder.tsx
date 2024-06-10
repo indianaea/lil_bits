@@ -12,32 +12,42 @@ const FindOrder = () => {
   };
 
   const handleFindOrder = async () => {
-    const order = await orderApi.getOrder(JSON.stringify(email));
+    try {
+      localStorage.setItem('savedOrderEmail', email);
+      const savedOrder = await orderApi.getOrder(email);
+      localStorage.setItem('savedOrderId', String(savedOrder.id));    
+      localStorage.setItem('selectedDate', String(savedOrder.orderDate));
+      //console.log(`savedOrder.date : ${savedOrder.orderDate}`)
+      localStorage.setItem('selectedTime', String(savedOrder.time));
+      //console.log(`savedOrder.time : ${savedOrder.time}`)
+      localStorage.setItem('numberOfPeople', String(savedOrder.count));
+      //console.log(`savedOrder.count : ${savedOrder.count}`)
+      localStorage.setItem('savedTotalAmount', String(savedOrder.totalAmount));
+      //console.log(`savedOrder.totalAmount : ${savedOrder.totalAmount}`)
 
-    if (order.email == JSON.stringify(email)) {
-      localStorage.setItem('savedOrder', JSON.stringify(order)); 
-      window.location.href = "/order";
-    } else {
-      alert(`No order found: ${order.email}`);
-    }    
+      window.location.href = "/order";    
+    } catch (error) {
+      console.log(`Order not found for email: ${email}`);
+      localStorage.clear();
+    }
+    finally{
+      console.log("Running finally");
+    }
   };
 
   return (
     <div className="find-order-container">
-      <h2 className="title">Find your order</h2>
-      <label className="email-label" htmlFor="email">With your email you can find your order, change it and update it!</label>
+      <h2 className="title">Find your order!</h2>
+      <label className="email-label" htmlFor="email">Enter your email</label>
       <input
         type="email"
         id="email"
         className="email-input"
         value={email}
         onChange={handleInputChange}
-        placeholder="Enter your email"
+        placeholder="Enter email"
       />
-      <button className="find-button" onClick={handleFindOrder}>
-        Find
-        <img src="arrow.svg" alt="Arrow" className="arrow-icon" />
-      </button>
+      <button className="find-button" onClick={handleFindOrder}>Find</button>
     </div>
   );
 };
