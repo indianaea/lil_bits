@@ -1,28 +1,34 @@
 .carousel-container {
   border: 14px solid #3e5f54; /* Green border */
   border-radius: 26px;
-  padding: 10px; /* Add some padding around the slider */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .carousel-wrapper {
-  width: 100%;
-  max-width: 400px;
+  width: 400px;
   height: 400px;
-  margin: 20px auto;
   overflow: hidden; /* Hide overflow to prevent content from exceeding boundaries */
 }
 
 .image-container {
   width: 100%;
-  height: 100%; /* Make sure images fill the square */
+  height: 400px; /* Make sure images fill the square */
   object-fit: cover; /* Maintain aspect ratio and cover the area */
+  border-radius: 26px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 400px;
 }
 
 .carousel .control-dots {
-  bottom: 10px; /* Position dots at the bottom */
+  position: absolute; /* Position dots absolutely */
+  top: 350px; /* Position dots at the bottom */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .carousel .control-dots .dot {
@@ -43,7 +49,7 @@
 
   .carousel .slide img {
     width: 100%;
-    height: 100%;
+    height: 300px; /* Adjust height for smaller screens */
     object-fit: cover; /* Ensure images fill the smaller square */
   }
 }
