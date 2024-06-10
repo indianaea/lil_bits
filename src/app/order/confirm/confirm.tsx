@@ -58,11 +58,15 @@ const TotalOrder: React.FC = () => {
     if (!newOrder) return;
     try {newOrder
       newOrder.email = getLocalStorageString("savedOrderEmail", "");
+
+      if (!newOrder.email) {
+        alert("Email is required to proceed with the order.");
+        return;
+      }
+
       newOrder.orderDate = new Date(getLocalStorageString("selectedDate", new Date().toISOString()));
       newOrder.time = getLocalStorageString("selectedTime", "");
       newOrder.count = Number(localStorage.getItem('numberOfPeople')) || 0;
-
-      //alert(`Nýr fjoldi gesta sóttur ${newOrder.count}`);
 
       const amount = newOrder.dish.price + newOrder.drinks.reduce((total, drink) => total + drink.price, 0);
       newOrder.totalAmount = amount * newOrder.count;
