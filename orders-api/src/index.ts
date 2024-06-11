@@ -56,7 +56,7 @@ let menu: DishType[] = [
     id: 6,
     category: "meat",
     cousine: "American",
-    description: "Grilled steak with garlic butter and more",
+    description: "Grilled steak with garlic butter and crispy potatos",
     imageSource: "https://www.themealdb.com/images/media/meals/vussxq1511882648.jpg",
     name: "Grilled Steak",
     price: 3500,
