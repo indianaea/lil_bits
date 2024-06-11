@@ -2,36 +2,36 @@
   position: fixed;
   margin: auto;
   display: flex;
-  justify-content: center; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically */
-  background-color: #cf6757; /* More visible for testing */
+  justify-content: center;
+  align-items: center;
+  background-color: #cf6757;
   color: white;
   font: "Poppins", sans-serif;
-  padding: 16px; /* Add horizontal padding */
+  padding: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border-radius: 36px;
   top: 16px;
   left: 16px;
   right: 16px;
-  height: 80px; /* Fixed height for the navbar */
+  height: 80px;
   z-index: 100;
 }
 
 .container {
   max-width: 1024px;
-  width: 100%; /* Make container full width */
+  width: 100%;
   display: flex;
-  justify-content: space-between; /* Space between logo and menu */
-  align-items: center; /* Center items vertically */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo img {
-  height: 100px; /* Adjust the height as needed */
-  width: auto; /* Maintain aspect ratio */
+  height: 100px;
+  width: auto;
 }
 
 .menuBtn {
-  display: none; /* Hidden on medium screens and up */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -40,13 +40,13 @@
 .icon {
   width: 24px;
   height: 24px;
-  filter: brightness(0) invert(1); /* This will make the icon white */
+  filter: brightness(0) invert(1);
 }
 
 .desktopMenu {
   display: flex;
   gap: 16px;
-  margin-left: auto; /* Move the menu to the right */
+  margin-left: auto;
 }
 
 .desktopMenu a {
@@ -55,29 +55,43 @@
 }
 
 .desktopMenu a:hover {
-  color: #27272a; /* raisinblack */
+  color: #27272a;
+}
+
+.mobileMenuWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: none;
+}
+
+.mobileMenuWrapper.open {
+  display: flex;
+  justify-content: center;
 }
 
 .mobileMenu {
-  display: none;
+  display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 50%; /* Position below the navbar */
-  left: 0;
-  right: 0;
   background-color: #cf6757;
-  padding: 16px; /* Add horizontal padding */
-  padding-top: 50px;
+  padding: 16px;
+  padding-top: 66px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 36px;
   border-bottom-right-radius: 36px;
+  position: absolute;
+  color: white;
+  top: 50px;
+  left: 16px;
+  right: 16px;
 }
 
 .mobileMenu a {
   display: block;
   padding: 10px;
-  text-align: center; /* Center the text */
-  z-index: 10;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -86,11 +100,5 @@
   }
   .desktopMenu {
     display: none;
-  }
-  .mobileMenu {
-    display: flex;
-  }
-  .mobileMenu a {
-    display: block;
   }
 }
