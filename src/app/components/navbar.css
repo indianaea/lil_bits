@@ -6,7 +6,7 @@
   align-items: center;
   background-color: #cf6757;
   color: white;
-  font: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border-radius: 36px;
@@ -54,6 +54,12 @@
   color: white;
 }
 
+.desktopMenu .current-page {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 5px; /* Adjust the value as needed */
+}
+
 .desktopMenu a:hover {
   color: #27272a;
 }
@@ -94,11 +100,29 @@
   text-align: center;
 }
 
+.rightContainer {
+  display: flex;
+  align-items: center;
+}
+
+.mobileCurrentPage {
+  display: none;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 3px; /* Adjust the value as needed */
+}
+
 @media (max-width: 768px) {
   .menuBtn {
     display: block;
   }
   .desktopMenu {
     display: none;
+  }
+
+  .mobileCurrentPage {
+    display: block;
+    margin-right: 20px;
   }
 }

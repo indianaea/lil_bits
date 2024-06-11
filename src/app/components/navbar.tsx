@@ -1,10 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import "./navbar.css";
 import Link from "next/link";
 
+const getPageName = (pathname: string): string => {
+    if (pathname.includes("/order/confirm")) {
+        return "Confirm";
+    } else if (pathname.includes("/order/receipt")) {
+        return "Receipt";
+    } else if (pathname.includes("/order/drink")) {
+        return "Drinks";
+    } else if (pathname.includes("/order")) {
+        return "Order";
+    } else if (pathname.includes("/aboutUs")) {
+        return "About us";
+    } else {
+        return "Home";
+    }
+};
+
+
 export const NavbarMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
+    const pageName = getPageName(pathname);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -17,21 +37,23 @@ export const NavbarMenu = () => {
                     <Link href="/" className="logo">
                         <img src="/lilbits.png" alt="Website Logo" />
                     </Link>
-                    <button className="menuBtn" onClick={toggleMenu}>
-                        <img src="/hamburger-icon.svg" alt="Menu" className="icon" />
-                    </button>
+                    <div className="rightContainer">
+                        <div className="mobileCurrentPage">
+                            {pageName}
+                        </div>
+                        <button className="menuBtn" onClick={toggleMenu}>
+                            <img src="/hamburger-icon.svg" alt="Menu" className="icon" />
+                        </button>
+                    </div>
                     <ul className="desktopMenu">
                         <li>
-                            <Link href="/order">Order dish</Link>
+                            <Link href="/order">Order</Link>
                         </li>
                         <li>
                             <Link href="/aboutUs">About us</Link>
                         </li>
-                        <li>
-                            <Link href="/menu">Menu</Link>
-                        </li>
-                        <li>
-                            <Link href="/order/drink">Drinks</Link>
+                        <li className="current-page">
+                            {pageName}
                         </li>
                     </ul>
                 </div>
@@ -39,16 +61,10 @@ export const NavbarMenu = () => {
             <div className={`mobileMenuWrapper ${isOpen ? "open" : ""}`}>
                 <ul className="mobileMenu">
                     <li>
-                        <Link href="/order">Order dish</Link>
+                        <Link href="/order">Order</Link>
                     </li>
                     <li>
-                        <Link href="/aboutUs">About us</Link>
-                    </li>
-                    <li>
-                        <Link href="/menu">Menu</Link>
-                    </li>
-                    <li>
-                        <Link href="/order/drink">Drinks</Link>
+                        <Link href="/aboutUs">About Us</Link>
                     </li>
                 </ul>
             </div>
