@@ -13,6 +13,7 @@ const PeoplePicker: React.FC = () => {
       const count = Number(localStorage.getItem('numberOfPeople'));
       setNumberOfPeople(count);
     }
+    localStorage.setItem('numberOfPeople', numberOfPeople.toString()); 
   }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -23,6 +24,7 @@ const PeoplePicker: React.FC = () => {
 
   return (
     <div className="people-picker">
+      <p>Please enter the number of guests</p>
       <select onChange={handleChange} value={numberOfPeople}>
         {Array.from({ length: 10 }, (_, i) => i + 1).map((number) => (
           <option key={number} value={number}>{number}</option>

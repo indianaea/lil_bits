@@ -9,11 +9,11 @@ let orders: OrderType[] = [];
 let menu: DishType[] = [
   {
     id: 1,
-    category: "seafood",
-    cousine: "Malaysian",
-    description: "White fish in creamy sauce",
-    imageSource: "https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg",
-    name: "Nasi lemak",
+    category: "vegetarian",
+    cousine: "American",
+    description: "Chicken & halloumi burgers with cheese",
+    imageSource: "https://www.themealdb.com/images/media/meals/vdwloy1713225718.jpg",
+    name: "Halloumi Burger",
     price: 2500,
   },
   {
@@ -21,7 +21,7 @@ let menu: DishType[] = [
     category: "seafood",
     cousine: "Japanese",
     description: "Fresh sushi rolls",
-    imageSource: "https://www.themealdb.com/images/media/meals/uwxusv1487344500.jpg",
+    imageSource: "https://www.themealdb.com/images/media/meals/g046bb1663960946.jpg",
     name: "Sushi",
     price: 1800,
   },
@@ -30,7 +30,7 @@ let menu: DishType[] = [
     category: "meat",
     cousine: "Italian",
     description: "Classic spaghetti with meatballs",
-    imageSource: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
+    imageSource: "https://www.themealdb.com/images/media/meals/sutysw1468247559.jpg",
     name: "Spaghetti Bolognese",
     price: 2000,
   },
@@ -39,8 +39,8 @@ let menu: DishType[] = [
     category: "vegetarian",
     cousine: "Indian",
     description: "Spiced chickpeas in a rich tomato sauce",
-    imageSource: "https://www.themealdb.com/images/media/meals/xutquv1505330523.jpg",
-    name: "Chana Masala",
+    imageSource: "https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg",
+    name: "Spiced chickpeas",
     price: 1500,
   },
   {
@@ -48,7 +48,7 @@ let menu: DishType[] = [
     category: "seafood",
     cousine: "Spanish",
     description: "A traditional Spanish seafood dish with rice",
-    imageSource: "https://www.themealdb.com/images/media/meals/vwwspt1487394060.jpg",
+    imageSource: "https://www.themealdb.com/images/media/meals/1520081754.jpg",
     name: "Paella",
     price: 3000,
   },
@@ -57,7 +57,7 @@ let menu: DishType[] = [
     category: "meat",
     cousine: "American",
     description: "Grilled steak with garlic butter",
-    imageSource: "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+    imageSource: "https://www.themealdb.com/images/media/meals/vussxq1511882648.jpg",
     name: "Grilled Steak",
     price: 3500,
   },
@@ -72,29 +72,29 @@ let menu: DishType[] = [
   },
   {
     id: 8,
-    category: "dessert",
-    cousine: "French",
-    description: "A classic French dessert with caramelized sugar",
-    imageSource: "https://www.themealdb.com/images/media/meals/ryspuw1468923356.jpg",
-    name: "Crème Brûlée",
+    category: "vegetarian",
+    cousine: "American",
+    description: "A classic grilled Mac and Cheese Sandwich",
+    imageSource: "https://www.themealdb.com/images/media/meals/xutquv1505330523.jpg",
+    name: "Cheese Sandwich",
     price: 900,
   },
   {
     id: 9,
     category: "seafood",
     cousine: "Thai",
-    description: "Spicy shrimp soup with lemongrass and coconut milk",
-    imageSource: "https://www.themealdb.com/images/media/meals/1529445367.jpg",
-    name: "Tom Yum Goong",
+    description: "Baked salmon with fennel & tomatoes",
+    imageSource: "https://www.themealdb.com/images/media/meals/1548772327.jpg",
+    name: "Baked Salmon",
     price: 2200,
   },
   {
     id: 10,
-    category: "meat",
-    cousine: "Mexican",
-    description: "Tacos with beef, cheese, and fresh salsa",
-    imageSource: "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg",
-    name: "Tacos",
+    category: "desert",
+    cousine: "American",
+    description: "Delicious salted Caramel Cheescake",
+    imageSource: "https://www.themealdb.com/images/media/meals/xqrwyr1511133646.jpg",
+    name: "Cheescake",
     price: 1700,
   },
 ];
@@ -112,7 +112,7 @@ api.get("/api/orders", (_, res) => {
 });
 
 api.get("/api/menu", (req, res) => {
-  const index = Math.floor(Math.random() * 7);
+  const index = Math.floor(Math.random() * 10);
   return res.json(menu[index]);
 });
 

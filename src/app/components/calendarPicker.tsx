@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { format, getDay, startOfMonth, endOfMonth, addMonths, subMonths, isBefore, isEqual } from 'date-fns';
+import { format, getDay, startOfMonth, endOfMonth, addMonths, subMonths, isBefore, isEqual, addHours } from 'date-fns';
 import './calendarPicker.css';
 
 const CalendarPicker: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState('16:00');
+  const [selectedTime, setSelectedTime] = useState(format(addHours(new Date(), 1), 'HH:00'));
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
   useEffect(() => {
@@ -16,6 +16,11 @@ const CalendarPicker: React.FC = () => {
       const time = getLocalStorageString("selectedTime", "");
       setSelectedDate(date);
       setSelectedTime(time.replace(/"/g, ''));
+    } else {
+      setSelectedDate(selectedDate);
+      setSelectedTime(selectedTime);
+      localStorage.setItem('selectedDate', selectedDate.toISOString());
+      localStorage.setItem('selectedTime', selectedTime.replace(/"/g, ''));
     }
   }, []);  
 
@@ -34,7 +39,7 @@ const CalendarPicker: React.FC = () => {
   const handleTimeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedTime = event.target.value; 
     setSelectedTime(selectedTime);
-    localStorage.setItem('selectedTime', selectedTime);
+    localStorage.setItem('selectedTime', selectedTime.replace(/"/g, ''));
   };
 
   const renderDays = () => {
