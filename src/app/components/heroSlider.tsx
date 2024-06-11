@@ -31,10 +31,13 @@ const HeroSlider = () => {
                         <img src="spices.jpg" alt="Slide 1" />
                     </div>
                     <div className="image-container">
-                        <img src="lilbits.png" alt="Slide 2" />
+                        <img src="kex.jpg" alt="Slide 2" />
                     </div>
                     <div className="image-container">
-                        <img src="lilbits.png" alt="Slide 3" />
+                        <img src="foods.jpg" alt="Slide 3" />
+                    </div>
+                    <div className="image-container">
+                        <img src="spaghetti.jpg" alt="Slide 3" />
                     </div>
                 </Carousel>
             </div>
