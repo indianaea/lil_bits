@@ -14,7 +14,7 @@
   left: 16px;
   right: 16px;
   height: 80px; /* Fixed height for the navbar */
-  z-index: 10;
+  z-index: 100;
 }
 
 .container {
@@ -62,20 +62,22 @@
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 80px; /* Position below the navbar */
-  right: 16px;
+  top: 50%; /* Position below the navbar */
+  left: 0;
+  right: 0;
   background-color: #cf6757;
-  border-radius: 10px;
-  padding: 10px;
-  width: 100%;
-  max-width: 200px;
+  padding: 16px; /* Add horizontal padding */
+  padding-top: 50px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
 }
 
 .mobileMenu a {
   display: block;
   padding: 10px;
-  text-align: left;
+  text-align: center; /* Center the text */
+  z-index: 10;
 }
 
 @media (max-width: 768px) {
