@@ -60,7 +60,7 @@
 .day.selected {
   background: #cf6757;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 30px;
 }
 
 .day.empty {
@@ -73,7 +73,7 @@ select {
   padding: 8px;
   font-size: 16px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 8px;
   width: 100%;
   max-width: 300px;
 }

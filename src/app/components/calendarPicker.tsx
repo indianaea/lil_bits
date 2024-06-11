@@ -93,7 +93,7 @@ const CalendarPicker: React.FC = () => {
       </div>
       <input type="text" value={format(selectedDate, 'dd-MM-yyyy')} readOnly />
       <select value={selectedTime} onChange={handleTimeChange}>
-        {Array.from({ length: 8 }, (_, i) => 16 + i).map((hour) => (
+        {Array.from({ length: 7 }, (_, i) => 16 + i).map((hour) => (
           <option key={hour} value={`${hour}:00`}>{`${hour}:00`}</option>
         ))}
       </select>

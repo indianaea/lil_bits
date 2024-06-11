@@ -64,7 +64,7 @@ export const NavbarMenu = () => {
                         <Link href="/order">Order</Link>
                     </li>
                     <li>
-                        <Link href="/aboutUs">About Us</Link>
+                        <Link href="/aboutUs">About us</Link>
                     </li>
                 </ul>
             </div>
