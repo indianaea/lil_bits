@@ -193,7 +193,7 @@ api.put("/api/update-order", (req: Request<OrderType>, res) => {
   }
 
   // Map over each item, if the item has the same email as the email in the body, update the order with the new order changes
-  orders.map((o) => {
+  orders = orders.map((o) => {
     if (o.email === req.body.email) {
       return req.body;
     }
