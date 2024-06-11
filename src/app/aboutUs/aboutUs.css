@@ -1,0 +1,63 @@
+.aboutUsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
+
+.aboutUsContainer h1 {
+  text-align: center;
+  color: #cf6757;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.aboutUsContainer h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #cf6757;
+  font-weight: 400;
+}
+
+.aboutUsContainer p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.aboutUsContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.aboutUsContainer ul li {
+  margin-bottom: 10px;
+}
+
+.aboutUsContainer ul li strong {
+  color: #cf6757;
+}
+
+/* Increased specificity */
+.aboutUsContainer ul,
+.aboutUsContainer ul li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aboutUsContainer ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.aboutUsContainer ul li::before {
+  content: "•";
+  color: #cf6757;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
