@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
-import { format, getDay, startOfMonth, endOfMonth, addMonths, subMonths, isBefore, isEqual, addHours } from 'date-fns';
+import { format, getDay, startOfMonth, endOfMonth, addMonths, subMonths, isBefore, addHours, startOfToday } from 'date-fns';
 import './calendarPicker.css';
 
 const CalendarPicker: React.FC = () => {
@@ -29,8 +29,7 @@ const CalendarPicker: React.FC = () => {
   };
 
   const handleDayClick = (date: Date) => {
-    const today = new Date();
-    if (getDay(date) !== 0 && getDay(date) !== 6 && !isBefore(date, today)) {
+    if (getDay(date) !== 0 && getDay(date) !== 6) {
       setSelectedDate(date);
       localStorage.setItem('selectedDate', date.toISOString());
     }
@@ -49,6 +48,7 @@ const CalendarPicker: React.FC = () => {
     const startDate = start.getDate();
     const endDate = end.getDate();
     const startDay = getDay(start);
+    const today = startOfToday();
 
     for (let i = 0; i < startDay; i++) {
       days.push(<div key={`empty-${i}`} className="day empty"></div>);
@@ -56,14 +56,15 @@ const CalendarPicker: React.FC = () => {
 
     for (let i = startDate; i <= endDate; i++) {
       const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), i);
-      const today = new Date();
-      const isPast = isBefore(date, today) && !isEqual(date, today);
+      const isPast = isBefore(date, today);
+      const isWeekend = getDay(date) === 0 || getDay(date) === 6;
+
       days.push(
         <div
           key={i}
-          className={`day ${getDay(date) === 0 || getDay(date) === 6 ? 'weekend' : ''} ${date.toDateString() === selectedDate.toDateString() ? 'selected' : ''} ${isPast ? 'past' : ''}`}
+          className={`day ${isWeekend ? 'weekend' : ''} ${date.toDateString() === selectedDate.toDateString() ? 'selected' : ''} ${isPast ? 'past' : ''}`}
           onClick={() => handleDayClick(date)}
-          style={{ pointerEvents: getDay(date) === 0 || getDay(date) === 6 || isPast ? 'none' : 'auto', opacity: getDay(date) === 0 || getDay(date) === 6 || isPast ? 0.5 : 1 }}
+          style={{ pointerEvents: isWeekend || isPast ? 'none' : 'auto', opacity: isWeekend || isPast ? 0.5 : 1 }}
         >
           {i}
         </div>
