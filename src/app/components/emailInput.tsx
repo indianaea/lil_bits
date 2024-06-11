@@ -41,7 +41,8 @@ const EmailInput: React.FC = () => {
 
   return (
     <div className="emailInputContainer">
-      <p>Please put in a valid email for your order - thank you!</p>
+      <p>Please put in a valid email for your order</p>
+      <p>thank you!</p>
       <div className={classNames('emailInput', { shake: !isValid })}>
         <input
           type="email"
