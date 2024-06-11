@@ -64,7 +64,7 @@ const DrinkSelector: React.FC = () => {
 
   return (
     <>
-      <div className="DrinksContainer">
+      <div className="drinksContainer">
         {drinks.map(drink => (
           <div
             key={drink.id}

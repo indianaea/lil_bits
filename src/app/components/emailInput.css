@@ -1,16 +1,16 @@
-.email-input-container {
+.emailInputContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
 }
 
-.email-input {
+.emailInput {
   display: flex;
   justify-content: center;
 }
 
-.email-input input {
+.emailInput input {
   margin: 5px;
   padding: 8px;
   border: 1px solid #ccc;
@@ -26,11 +26,11 @@
   font-size: 14px;
 }
 
-.error-input {
+.errorInput {
   border-color: red !important;
 }
 
-.valid-input {
+.validInput {
   border-color: green !important;
 }
 

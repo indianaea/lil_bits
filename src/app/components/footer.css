@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.footer-content {
+.footerContent {
   max-width: 1000px;
   margin: auto;
   display: flex;
@@ -13,16 +13,16 @@
   align-items: center;
 }
 
-.footer-links {
+.footerLinks {
   margin-top: 10px;
 }
 
-.footer-links a {
+.footerLinks a {
   color: white;
   margin: 0 10px;
   text-decoration: none;
 }
 
-.footer-links a:hover {
+.footerLinks a:hover {
   text-decoration: underline;
 }

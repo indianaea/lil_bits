@@ -52,7 +52,7 @@ export const NavbarMenu = () => {
                         <li>
                             <Link href="/aboutUs">About us</Link>
                         </li>
-                        <li className="current-page">
+                        <li className="currentPage">
                             {pageName}
                         </li>
                     </ul>

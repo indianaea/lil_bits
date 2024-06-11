@@ -33,18 +33,18 @@ const FindOrder = () => {
   };
 
   return (
-    <div className="find-order-container">
+    <div className="findOrderContainer">
       <h2 className="title">Find your order!</h2>
-      <label className="email-label" htmlFor="email">Enter your email</label>
+      <label className="emailLabel" htmlFor="email">Enter your email</label>
       <input
         type="email"
         id="email"
-        className="email-input"
+        className="emailInput"
         value={email}
         onChange={handleInputChange}
         placeholder="Enter email"
       />
-      <button className="find-button" onClick={handleFindOrder}>Find</button>
+      <button className="findButton" onClick={handleFindOrder}>Find</button>
     </div>
   );
 };

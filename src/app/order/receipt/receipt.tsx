@@ -55,35 +55,35 @@ const OrderReceipt: React.FC = () => {
 
   return (
     <>
-      <div className="receipt-container">
+      <div className="receiptContainer">
         <h1>Order summary</h1>
-        <div className="order-details">
+        <div className="orderDetails">
           <p><strong>Email:</strong> {newOrder.email}</p>
           <p><strong>Date:</strong> {new Date(newOrder.orderDate).toLocaleDateString()}</p>
           <p><strong>People:</strong> {newOrder.count}</p>
           <p><strong>Time:</strong> {newOrder.time}</p>
         </div>
-        <div className="order-details">
+        <div className="orderDetails">
           <h2>Dish</h2>
           <p><strong>Name:</strong> {newOrder.dish.name}</p>
           <p><strong>Cousine:</strong> {newOrder.dish.cousine}</p>
           <p><strong>Description:</strong> {newOrder.dish.description}</p>
           <p><strong>Price:</strong> {newOrder.dish.price.toFixed(0)} kr</p>
         </div>
-        <div className="order-details">
+        <div className="orderDetails">
           <h2>Drinks</h2>
           {newOrder.drinks.length === 0 ? (
             <p>No drinks selected</p>
           ) : (
             newOrder.drinks.map(drink => (
-              <div key={drink.id} className="drink-item">
+              <div key={drink.id} className="drinkItem">
                 <p><strong>Name:</strong> {drink.name}</p>
                 <p><strong>Price:</strong> {drink.price.toFixed(0)} kr</p>
               </div>
             ))
           )}
         </div>
-        <div className="order-summary">
+        <div className="orderSummary">
           <h2>Total Amount</h2>
           <p><strong>{newOrder.totalAmount.toFixed(0)} kr</strong></p>
         </div>

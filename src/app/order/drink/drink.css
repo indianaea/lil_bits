@@ -1,4 +1,4 @@
-.DrinksContainer {
+.drinksContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -11,32 +11,32 @@
   position: relative;
   margin: 20px;
   padding: 20px;
-  width: calc(23% - 40px); /* Thinner boxes for four drinks per row */
+  width: calc(23% - 40px);
   box-sizing: border-box;
-  text-align: left; /* Align text to left */
-  background-color: #ffe5d9; /* Card background color */
-  border-radius: 10px; /* Rounded corners for the card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+  text-align: left;
+  background-color: #ffe5d9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  margin-bottom: 40px; /* Add margin between rows */
+  margin-bottom: 40px;
 }
 
 .drink:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  transform: scale(1.05);
 }
 
 .drink img {
-  width: 120px; /* Adjusted size */
-  height: 120px; /* Adjusted size */
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   position: absolute;
-  top: -40px; /* Position image at the top */
-  right: -20px; /* Position image at the right */
-  border: 5px solid #cf6757; /* Always use red border */
+  top: -40px;
+  right: -20px;
+  border: 5px solid #cf6757;
 }
 
 .drink.selected img {
-  border-color: #3e5f54; /* Green border for selected items */
+  border-color: #3e5f54;
 }
 
 .drink p {
@@ -55,7 +55,7 @@
 .drink .button {
   margin-top: 20px;
   padding: 5px 20px;
-  background-color: #cf6757; /* Button background color */
+  background-color: #cf6757;
   color: white;
   border: none;
   border-radius: 32px;
@@ -65,36 +65,35 @@
 }
 
 .drink .button.selected {
-  background-color: #3e5f54; /* Green button for selected items */
+  background-color: #3e5f54;
 }
 
 .drink .button:hover {
-  background-color: #3e5f54; /* Darker button on hover */
+  background-color: #3e5f54;
 }
 
 .drink.selected .price {
-  color: #3e5f54; /* Color change for selected items */
+  color: #3e5f54;
 }
 
 .drink.selected .button {
-  background-color: #3e5f54; /* Button color change for selected items */
+  background-color: #3e5f54;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
   .drink {
-    width: calc(33.33% - 40px); /* Three drinks per row on medium screens */
+    width: calc(33.33% - 40px);
   }
 }
 
 @media (max-width: 768px) {
   .drink {
-    width: calc(50% - 40px); /* Two drinks per row on small screens */
+    width: calc(50% - 40px);
   }
 }
 
 @media (max-width: 480px) {
   .drink {
-    width: calc(100% - 40px); /* One drink per row on extra small screens */
+    width: calc(100% - 40px);
   }
 }

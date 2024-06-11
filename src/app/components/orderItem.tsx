@@ -13,7 +13,7 @@ interface Props {
 const OrderItem: React.FC<Props> = ({ item, click }) => {
 
     const renderCardContent = () => {
-        if ('dish' in item) { // Check if it's an OrderType
+        if ('dish' in item) {
             return (
                 <>
                     <h1 className="cardTitle">{item.dish.name}</h1>
@@ -21,7 +21,7 @@ const OrderItem: React.FC<Props> = ({ item, click }) => {
                     <img src={item.dish.imageSource} alt={item.dish.name} className="cardImage" />
                 </>
             );
-        } else if ('cousine' in item) { // Check if it's a DishType
+        } else if ('cousine' in item) {
             return (
                 <>
                     <h1 className="cardTitle">{item.name} - {item.cousine}</h1>
@@ -29,7 +29,7 @@ const OrderItem: React.FC<Props> = ({ item, click }) => {
                     <img src={item.imageSource} alt={item.name} className="cardImage" />
                 </>
             );
-        } else { // Otherwise, it's a DrinkType
+        } else {
             return (
                 <>
                     <div onClick={click}>

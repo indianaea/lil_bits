@@ -1,4 +1,4 @@
-.find-order-container {
+.findOrderContainer {
   border: 10px solid #cf6757;
   padding: 20px;
   width: 1050px;
@@ -17,7 +17,7 @@
   margin-bottom: 10px;
 }
 
-.email-label {
+.emailLabel {
   display: block;
   margin-bottom: 5px;
   color: #cf6757;
@@ -25,7 +25,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.email-input {
+.emailInput {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -37,7 +37,7 @@
   color: #333;
 }
 
-.find-button {
+.findButton {
   padding: 10px 30px;
   font-size: 20px;
   background-color: #cf6757;
@@ -55,20 +55,19 @@
   align-items: center;
 }
 
-.find-button:hover {
+.findButton:hover {
   background-color: #3e5f54;
   color: white;
 }
 
-.arrow-icon {
+.arrowIcon {
   width: 20px;
   height: auto;
   margin-left: 10px;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-  .find-order-container {
+  .findOrderContainer {
     width: 100%;
     padding: 10px;
     border-width: 5px;
@@ -80,31 +79,30 @@
     margin-bottom: 8px;
   }
 
-  .email-label {
+  .emailLabel {
     font-size: 14px;
   }
 
-  .email-input {
+  .emailInput {
     padding: 8px;
     font-size: 14px;
     margin-bottom: 16px;
   }
 
-  .find-button {
+  .findButton {
     padding: 8px 20px;
     font-size: 18px;
     border-radius: 24px;
   }
 
-  .arrow-icon {
+  .arrowIcon {
     width: 16px;
     margin-left: 8px;
   }
 }
 
-/* Tablet */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .find-order-container {
+  .findOrderContainer {
     width: 770px;
     padding: 15px;
     border-width: 8px;
@@ -116,23 +114,23 @@
     margin-bottom: 10px;
   }
 
-  .email-label {
+  .emailLabel {
     font-size: 15px;
   }
 
-  .email-input {
+  .emailInput {
     padding: 9px;
     font-size: 15px;
     margin-bottom: 18px;
   }
 
-  .find-button {
+  .findButton {
     padding: 9px 25px;
     font-size: 19px;
     border-radius: 28px;
   }
 
-  .arrow-icon {
+  .arrowIcon {
     width: 18px;
     margin-left: 9px;
   }

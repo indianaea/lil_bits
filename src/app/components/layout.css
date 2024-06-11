@@ -1,33 +1,29 @@
-/* Flex container for the layout */
 .layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Navbar stays at the top */
-.layout-header {
+.layoutHeader {
   padding: 20px;
   text-align: center;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
   height: 112px;
 }
 
-/* Main content takes remaining space */
-.layout-main {
+.layoutMain {
   flex: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align items to the top */
+  justify-content: flex-start;
 }
 
-/* Footer stays at the bottom */
-.layout-footer {
+.layoutFooter {
   background-color: #333;
   color: white;
   padding: 20px;
   text-align: center;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
 }

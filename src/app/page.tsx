@@ -13,15 +13,15 @@ const nextPage = async () => {
 const FrontPage = () => {
   return (
     <Layout>
-      <div className="HeroSection">
-        <div className="HeroText">
+      <div className="heroSection">
+        <div className="heroText">
           <h1>Welcome to Our Service</h1>
-          <p className="HeroSubText">Your reliable partner for all your needs</p>
+          <p className="heroSubText">Your reliable partner for all your needs</p>
           <Button onClick={nextPage} caption="Order" />
         </div>
         <HeroSlider />
       </div>
-      <div className="FindOrderSection">
+      <div className="findOrderSection">
         <FindOrder />
       </div>
     </Layout>

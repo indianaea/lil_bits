@@ -1,4 +1,4 @@
-.receipt-container {
+.receiptContainer {
   padding: 20px;
   max-width: 600px;
   margin-bottom: 20px;
@@ -7,50 +7,50 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.receipt-container h1 {
+.receiptContainer h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 20px;
   padding-bottom: 20px;
 }
 
-.order-details {
+.orderDetails {
   margin-bottom: 20px;
   font-family: "Poppins", sans-serif;
 }
 
-.order-details h2 {
+.orderDetails h2 {
   margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 18px;
 }
 
-.order-details p {
+.orderDetails p {
   margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 
-.drink-item {
+.drinkItem {
   margin-bottom: 10px;
 }
 
-.order-summary {
+.orderSummary {
   margin-top: 20px;
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
 
-.order-summary h2 {
+.orderSummary h2 {
   margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 20px;
 }
 
-.order-summary p {
+.orderSummary p {
   font-size: 1.5em;
   font-weight: bold;
   font-family: "Poppins", sans-serif;

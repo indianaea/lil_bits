@@ -1,4 +1,4 @@
-.HeroSection {
+.heroSection {
   display: flex;
   align-items: center;
   padding: 20px;
@@ -6,7 +6,7 @@
   margin-bottom: 40px;
 }
 
-.HeroText {
+.heroText {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -15,13 +15,13 @@
   font: "Poppins", sans-serif;
 }
 
-.HeroText h1 {
+.heroText h1 {
   font-size: 3rem;
   margin-bottom: 10px;
   font: "Poppins", sans-serif;
 }
 
-.HeroText .HeroSubText {
+.heroText .heroSubText {
   font-size: 1.5rem;
   margin-bottom: 20px;
   color: #666;
@@ -48,25 +48,24 @@
   color: white;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-  .HeroSection {
+  .heroSection {
     flex-direction: column;
     align-items: center;
   }
 
-  .HeroText {
+  .heroText {
     align-items: center;
     margin-right: 0;
     margin-bottom: 20px;
   }
 
-  .HeroText h1 {
+  .heroText h1 {
     font-size: 2rem;
     text-align: center;
   }
 
-  .HeroText .HeroSubText {
+  .heroText .heroSubText {
     font-size: 1rem;
     text-align: center;
   }

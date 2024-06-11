@@ -74,7 +74,7 @@ const CalendarPicker: React.FC = () => {
   };
 
   return (
-    <div className="calendar-picker">
+    <div className="calendarPicker">
       <div className="calendar">
         <div className="header">
           <button onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>←</button>

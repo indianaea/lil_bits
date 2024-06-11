@@ -40,15 +40,15 @@ const EmailInput: React.FC = () => {
   };
 
   return (
-    <div className="email-input-container">
+    <div className="emailInputContainer">
       <p>Please put in a valid email for your order - thank you!</p>
-      <div className={classNames('email-input', { shake: !isValid })}>
+      <div className={classNames('emailInput', { shake: !isValid })}>
         <input
           type="email"
           value={email}
           onChange={handleChange}
           placeholder="Enter your email"
-          className={isValid ? 'valid-input' : 'error-input'}
+          className={isValid ? 'validInput' : 'errorInput'}
         />
       </div>
       {!isValid && <div className="error">Please enter a valid email address</div>}

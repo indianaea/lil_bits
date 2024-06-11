@@ -23,7 +23,7 @@ const PeoplePicker: React.FC = () => {
   };
 
   return (
-    <div className="people-picker">
+    <div className="peoplePicker">
       <p>Please enter the number of guests</p>
       <select onChange={handleChange} value={numberOfPeople}>
         {Array.from({ length: 10 }, (_, i) => i + 1).map((number) => (

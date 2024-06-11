@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, caption }) => {
   return (
     <button onClick={onClick} className="button">
       {caption}
-      <img src="/arrow.svg" alt="Arrow" className="arrow-icon" />
+      <img src="/arrow.svg" alt="Arrow" className="arrowIcon" />
     </button>
   );
 };

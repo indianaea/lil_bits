@@ -7,36 +7,36 @@ import './heroSlider.css';
 
 const HeroSlider = () => {
     return (
-        <div className="carousel-container">
-            <div className="carousel-wrapper">
+        <div className="carouselContainer">
+            <div className="carouselWrapper">
                 <Carousel
-                    showArrows={false} // Hide arrows
-                    showStatus={false} // Hide status
-                    showIndicators={true} // Show dots
+                    showArrows={false} 
+                    showStatus={false} 
+                    showIndicators={true} 
                     infiniteLoop={true}
-                    showThumbs={false} // Hide thumbnails
+                    showThumbs={false} 
                     useKeyboardArrows={true}
-                    autoPlay={true} // Enable autoplay
-                    stopOnHover={false} // Do not stop on hover
+                    autoPlay={true}
+                    stopOnHover={false}
                     swipeable={true}
                     dynamicHeight={true}
                     emulateTouch={true}
                     autoFocus={false}
-                    interval={5000} // Set autoplay interval
-                    transitionTime={700} // Set transition time
+                    interval={5000} 
+                    transitionTime={700} 
                     swipeScrollTolerance={5}
                     ariaLabel="Hero Slider"
                 >
-                    <div className="image-container">
+                    <div className="imageContainer">
                         <img src="spices.jpg" alt="Slide 1" />
                     </div>
-                    <div className="image-container">
+                    <div className="imageContainer">
                         <img src="kex.jpg" alt="Slide 2" />
                     </div>
-                    <div className="image-container">
+                    <div className="imageContainer">
                         <img src="foods.jpg" alt="Slide 3" />
                     </div>
-                    <div className="image-container">
+                    <div className="imageContainer">
                         <img src="spaghetti.jpg" alt="Slide 3" />
                     </div>
                 </Carousel>

@@ -8,8 +8,8 @@ import Footer from "./components/footer";
 const Routers = () => {
     return (
         <div>
-        <div className="HeaderClass">{<Navbar />}</div>
-        <div className="HeaderClass">{<Footer />}</div>
+        <div className="headerClass">{<Navbar />}</div>
+        <div className="headerClass">{<Footer />}</div>
         </div>
     );
 };

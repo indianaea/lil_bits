@@ -45,27 +45,26 @@ const Orders = () => {
   };
 
   const confirmSelection = () => {
-    //console.log('Confirmed selected dish:', selectedDish);
     localStorage.setItem('selectedDish', JSON.stringify(selectedDish));
     nextPage();
   };
 
   return (
-    <div className="OrdersContainer">
+    <div className="ordersContainer">
       {dish && selectedDish && (
-        <div key={dish.id} className="DishSelected">
-          <img src={dish.imageSource} alt={dish.name} className="DishImage" />
-          <div className="DishDetailsContainer">
-            <div className="RedSquare">
-              <div className="DishDetails">
-                <p className="DishName">{dish.name}</p>
-                <p className="DishDescription">{dish.description}</p>
-                <p className="DishPrice">Price: {dish.price} kr</p>
+        <div key={dish.id} className="dishSelected">
+          <img src={dish.imageSource} alt={dish.name} className="dishImage" />
+          <div className="dishDetailsContainer">
+            <div className="redSquare">
+              <div className="dishDetails">
+                <p className="dishName">{dish.name}</p>
+                <p className="dishDescription">{dish.description}</p>
+                <p className="dishPrice">Price: {dish.price} kr</p>
               </div>
-              <div className="ButtonContainer">
-                <button className="GetRandomDishButton" onClick={getRandomDish}>Get random dish</button>
-                <button className="GoToDrinkPageButton" onClick={confirmSelection}>Select drinks
-                <img src="arrow.svg" alt="Arrow" className="arrow-icon"/>
+              <div className="buttonContainer">
+                <button className="getRandomDishButton" onClick={getRandomDish}>Get random dish</button>
+                <button className="goToDrinkPageButton" onClick={confirmSelection}>Select drinks
+                <img src="arrow.svg" alt="Arrow" className="arrowIcon"/>
                 </button>
               </div>
             </div>

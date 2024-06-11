@@ -1,4 +1,4 @@
-.OrdersContainer {
+.ordersContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 }
 
-.DishSelected {
+.dishSelected {
   display: flex;
   align-items: center;
   margin: 10px;
@@ -16,20 +16,20 @@
   flex-wrap: wrap;
 }
 
-.DishImage {
+.dishImage {
   width: 300px;
   height: 300px;
   margin-right: 20px;
   border-radius: 18px;
 }
 
-.DishDetailsContainer {
+.dishDetailsContainer {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.RedSquare {
+.redSquare {
   background-color: #ffe5d9;
   padding: 20px;
   border-radius: 10px;
@@ -41,27 +41,27 @@
   box-sizing: border-box;
 }
 
-.DishName {
+.dishName {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 20px;
   margin: 5px 0;
 }
 
-.DishDescription,
-.DishPrice {
+.dishDescription,
+.dishPrice {
   font-family: "Poppins", sans-serif;
   font-size: 17px;
   font-weight: 400;
   margin: 10px 0;
 }
 
-.ButtonContainer {
+.buttonContainer {
   display: flex;
   gap: 20px;
 }
 
-.GetRandomDishButton {
+.getRandomDishButton {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #cf6757;
@@ -76,12 +76,12 @@
   transition: background-color 0.3s ease;
 }
 
-.GetRandomDishButton:hover {
+.getRandomDishButton:hover {
   background-color: #3e5f54;
   color: white;
 }
 
-.GoToDrinkPageButton {
+.goToDrinkPageButton {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #3e5f54;
@@ -98,106 +98,105 @@
   align-items: center;
 }
 
-.GoToDrinkPageButton:hover {
+.goToDrinkPageButton:hover {
   background-color: #cf6757;
   color: white;
 }
 
-.arrow-icon {
+.arrowIcon {
   width: 20px;
   height: auto;
   margin-left: 10px;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-  .OrdersContainer {
+  .ordersContainer {
     flex-direction: column;
     align-items: center;
     padding: 0px;
     margin: 20px 0;
   }
 
-  .DishSelected {
+  .dishSelected {
     flex-direction: column;
     align-items: center;
   }
 
-  .DishImage {
+  .dishImage {
     width: 100%;
     height: auto;
     margin-right: 0;
     margin-bottom: 20px;
   }
 
-  .RedSquare {
+  .redSquare {
     width: 100%;
     height: auto;
     padding: 20px;
   }
 
-  .ButtonContainer {
+  .buttonContainer {
     flex-direction: column;
     width: 100%;
     gap: 10px;
     margin-top: 20px;
   }
 
-  .GetRandomDishButton,
-  .GoToDrinkPageButton {
+  .getRandomDishButton,
+  .goToDrinkPageButton {
     width: 100%;
     padding: 10px;
     font-size: 18px;
     justify-content: center;
   }
 
-  .arrow-icon {
+  .arrowIcon {
     width: 16px;
     margin-left: 8px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .OrdersContainer {
+  .ordersContainer {
     flex-direction: column;
     align-items: center;
     padding: 20px;
     margin: 30px 0;
   }
 
-  .DishSelected {
+  .dishSelected {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
 
-  .DishImage {
+  .dishImage {
     width: 400px;
     height: auto;
     margin-right: 40px;
     margin-bottom: 20px;
   }
 
-  .RedSquare {
+  .redSquare {
     width: 90%;
     height: auto;
     padding: 20px;
   }
 
-  .ButtonContainer {
+  .buttonContainer {
     flex-direction: row;
     gap: 15px;
     margin-top: 20px;
   }
 
-  .GetRandomDishButton,
-  .GoToDrinkPageButton {
+  .getRandomDishButton,
+  .goToDrinkPageButton {
     padding: 10px 15px;
     font-size: 16px;
   }
 
-  .arrow-icon {
+  .arrowIcon {
     width: 18px;
     margin-left: 10px;
   }

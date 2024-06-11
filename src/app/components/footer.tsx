@@ -4,11 +4,11 @@ import './footer.css';
 const Footerr = () => {
     return (
         <footer className="footer">
-            <div className="footer-content">
+            <div className="footerContent">
                 <p>&copy; 2024 Your Company. All rights reserved.</p>
-                <div className="footer-links">
-                    <a href="/privacy-policy">Privacy Policy</a>
-                    <a href="/terms-of-service">Terms of Service</a>
+                <div className="footerLinks">
+                    <a href="/privacyPolicy">Privacy Policy</a>
+                    <a href="/termsOfService">Terms of Service</a>
                     <a href="/contact">Contact Us</a>
                 </div>
             </div>
@@ -19,9 +19,7 @@ const Footerr = () => {
 
 const Footer = () => {
     return (
-        // <---1 Wrap this component with a context
         <div className="footer">{<Footerr />}</div>
-        // 1--->
     );
 };
 
