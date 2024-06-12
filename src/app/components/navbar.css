@@ -26,7 +26,7 @@
 }
 
 .logo img {
-  height: 100px;
+  height: 118px;
   width: auto;
 }
 
@@ -38,8 +38,8 @@
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   filter: brightness(0) invert(1);
 }
 

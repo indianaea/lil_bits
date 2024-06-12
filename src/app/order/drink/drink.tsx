@@ -59,6 +59,10 @@ const DrinkSelector: React.FC = () => {
   };
 
   const confirmSelection = () => {
+    if (selectedDrinks.length === 0) {
+      alert("You must select at least one drink.");
+      return;
+    }
     window.location.href = "/order/confirm";
   };
 

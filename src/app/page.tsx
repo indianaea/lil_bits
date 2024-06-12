@@ -15,8 +15,8 @@ const FrontPage = () => {
     <Layout>
       <div className="heroSection">
         <div className="heroText">
-          <h1>Welcome to Our Service</h1>
-          <p className="heroSubText">Your reliable partner for all your needs</p>
+          <h1>Welcome to our Lil' Bits</h1>
+          <p className="heroSubText">Order food, drinks and a table for you and your loved<br/>ones for a warm stay with us.</p>
           <Button onClick={nextPage} caption="Order" />
         </div>
         <HeroSlider />
