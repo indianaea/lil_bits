@@ -11,9 +11,12 @@ const PeoplePicker: React.FC = () => {
     
     if (savedOrderId !== 0) {
       const count = Number(localStorage.getItem('numberOfPeople'));
-      setNumberOfPeople(count);
-    }
-    //localStorage.setItem('numberOfPeople', numberOfPeople.toString()); 
+        setNumberOfPeople(count);
+        localStorage.setItem('numberOfPeople', count.toString());
+      }
+      else {
+        localStorage.setItem('numberOfPeople', numberOfPeople.toString());
+      }
   }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
