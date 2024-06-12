@@ -5,11 +5,11 @@ const Footerr = () => {
     return (
         <footer className="footer">
             <div className="footerContent">
-                <p>&copy; 2024 Your Company. All rights reserved.</p>
+                <p>&copy; 2024 Lil' Bits. All rights reserved.</p>
                 <div className="footerLinks">
-                    <a href="/privacyPolicy">Privacy Policy</a>
-                    <a href="/termsOfService">Terms of Service</a>
-                    <a href="/contact">Contact Us</a>
+                    <a href="/">Privacy Policy</a>
+                    <a href="/">Terms of Service</a>
+                    <a href="/">Contact Us</a>
                 </div>
             </div>
         </footer>

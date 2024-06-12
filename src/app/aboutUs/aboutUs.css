@@ -39,7 +39,6 @@
   color: #cf6757;
 }
 
-/* Increased specificity */
 .aboutUsContainer ul,
 .aboutUsContainer ul li {
   list-style-type: none;

@@ -35,14 +35,14 @@ const FindOrder = () => {
   return (
     <div className="findOrderContainer">
       <h2 className="title">Find your order!</h2>
-      <label className="emailLabel" htmlFor="email">Enter your email</label>
+      <label className="emailLabel" htmlFor="email">You can find, change and update your order!</label>
       <input
         type="email"
         id="email"
         className="emailInput"
         value={email}
         onChange={handleInputChange}
-        placeholder="Enter email"
+        placeholder="Enter order email"
       />
       <button className="findButton" onClick={handleFindOrder}>Find</button>
     </div>

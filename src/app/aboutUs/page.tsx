@@ -7,11 +7,11 @@ const AboutUs = () => {
     return (
         <Layout>
             <div className="aboutUsContainer">
-                <h1>About Lil'Bits</h1>
-                <p>Welcome to Lil'Bits, where we offer a delightful culinary experience that brings the best of local and international flavors to your table. Our mission is to provide high-quality, delicious meals in a warm and welcoming environment.</p>
+                <h1>About Lil' Bits</h1>
+                <p>Welcome to Lil' Bits, where we offer a delightful culinary experience that brings the best of local and international flavors to your table. Our mission is to provide high-quality, delicious meals in a warm and welcoming environment.</p>
                 
                 <h2>Our Story</h2>
-                <p>Founded in 2023, Lil'Bits started as a small family-run restaurant with a passion for good food and great company. Over the years, we have grown into a beloved local establishment known for our diverse menu and exceptional service.</p>
+                <p>Founded in 2015, Lil' Bits started as a small family-run restaurant with a passion for good food and great company. Over the years, we have grown into a beloved local establishment known for our diverse menu and exceptional service.</p>
                 
                 <h2>Our Values</h2>
                 <ul>
@@ -22,10 +22,10 @@ const AboutUs = () => {
                 </ul>
 
                 <h2>Meet the Team</h2>
-                <p>Our team is composed of experienced chefs, dedicated staff, and friendly servers who are all passionate about making your dining experience memorable. We believe that good food brings people together, and we look forward to welcoming you to Lil'Bits.</p>
+                <p>Our team is composed of experienced chefs, dedicated staff, and friendly servers who are all passionate about making your dining experience memorable. We believe that good food brings people together, and we look forward to welcoming you to Lil' Bits.</p>
 
                 <h2>Contact Us</h2>
-                <p>Have any questions or want to make a reservation? Feel free to reach out to us at (123) 456-7890 or email us at info@lilbits.com. We are here to ensure you have a fantastic dining experience with us.</p>
+                <p>Have any questions or want to make a reservation? Book a table with our brand new website! Also feel free to reach out to us at (123) 456-7890 or email us at info@lilbits.com. We are here to ensure you have a fantastic dining experience with us.</p>
             </div>
         </Layout>
     );

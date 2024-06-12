@@ -3,7 +3,7 @@ import "./globals.css";
 import "@fontsource/poppins";
 
 export const metadata: Metadata = {
-  title: "Lil'Bits",
+  title: "Lil' Bits",
   description: "NTV lokaverkefni",
 };
 
