@@ -13,7 +13,7 @@ const PeoplePicker: React.FC = () => {
       const count = Number(localStorage.getItem('numberOfPeople'));
       setNumberOfPeople(count);
     }
-    localStorage.setItem('numberOfPeople', numberOfPeople.toString()); 
+    //localStorage.setItem('numberOfPeople', numberOfPeople.toString()); 
   }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
